@@ -116,10 +116,10 @@ class Ratios{
         ratios[3][0] = card.getAttack() / standardHealthCost;
         ratios[3][1] = card.getHealth() / standardAtkCost;
 
-        scores[0][0] = ((card.getAttack() / wildHealth) * (card.getAttack() / wildHealthCost)); // attackScoreWild
+        scores[0][0] = ((card.getAttack() / wildHealth) * (card.getAttack() / wildHealthCost));
         scores[1][0] = ((card.getAttack() / standardHealth) * (card.getAttack() / standardHealthCost));
 
-        scores[0][1] = ((card.getHealth() / wildAtk) * (card.getHealth() / wildAtkCost)); // survivalScoreWild
+        scores[0][1] = ((card.getHealth() / wildAtk) * (card.getHealth() / wildAtkCost));
         scores[1][1] = ((card.getHealth() / standardAtk) * (card.getHealth() / standardAtkCost));
 
         minionScoreWild = (((card.getAttack() / wildHealth) * (card.getAttack() / wildHealthCost))

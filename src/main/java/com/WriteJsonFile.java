@@ -14,6 +14,7 @@ import java.util.List;
 
 public class WriteJsonFile {
 
+
     WriteJsonFile(List<ScoredCard> cardList) throws IOException {
         File file = new File("C:\\Users\\genes\\Desktop\\HSjson files\\HSDBScored.json");
         File txtFile = new File("C:\\Users\\genes\\Desktop\\HSjson files\\HSBDScored.txt");

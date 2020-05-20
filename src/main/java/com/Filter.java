@@ -6,20 +6,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Filter extends Database {
-    private List<Card> cardList = this.cardDB;
+public class Filter {
+    private List<ScoredCard> cardList = new LinkedList<>();
 
-    Filter() throws IOException, URISyntaxException {
-        ObjectMapper mapper = new ObjectMapper();
-        jsonNode = mapper.readTree(new File("C:\\Users\\genes\\Desktop\\HSjson files\\HSDB.json"));
-        for (JsonNode node: jsonNode
+    Filter() throws IOException {
+        for (JsonNode node: new ObjectMapper().readTree(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\DataBase.json"))
         ) {
-            cardList.add(new Card(node));
+            cardList.add(new ScoredCard(node));
         }
 
     }
@@ -165,7 +162,9 @@ public class Filter extends Database {
     }
 
     public Filter standard() {
-        this.cardList = getCardList().stream()
+        this.cardList =
+                this.cardList
+                .stream()
                 .filter(Check::isStandard)
                 .collect(Collectors.toList());
         return this;
@@ -465,6 +464,11 @@ public class Filter extends Database {
         return this;
     }
 
+    public Filter outcast(){
+        this.cardList = this.cardList.stream().filter(Check::isOutcast).collect(Collectors.toList());
+        return this;
+    }
+
     public Filter control(){
         this.cardList = this.cardList.stream().filter(Check::isControl).collect(Collectors.toList());
         return this;
@@ -543,7 +547,7 @@ public class Filter extends Database {
         return this;
     }
 
-    public List<Card> getCardList() {
+    public List<ScoredCard> getCardList() {
         return cardList;
     }
 }

@@ -18,7 +18,7 @@ public class Database {
 
     protected List<Card> cardDB = new LinkedList<>();
     protected List<ScoredCard> DBScored = new LinkedList<>();
-    protected File jdb = new File("C:\\Users\\genes\\Desktop\\HSjson files\\HSDB.json");
+    protected File jdb = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\DataBase.json");
     protected File jdbText = new File("C:\\Users\\genes\\Desktop\\HSjson files\\HSDB.txt");
     private final OkHttpClient client = new OkHttpClient();
     private final JsonFactory factory = new JsonFactory();
@@ -30,7 +30,7 @@ public class Database {
         if (!jdb.exists()){
             int page = 1;
             accessToken();
-            while (cardDB.size() != 3707) {
+            while (cardDB.size() != 3715) {
             URI uri = new URIBuilder()
                     .setScheme("https")
                     .setHost("us.api.blizzard.com")

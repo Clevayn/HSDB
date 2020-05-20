@@ -1,8 +1,13 @@
 package com;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+import javax.naming.LinkLoopException;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.List;
+import java.util.*;
 
 public class Averages {
     protected int[][] wildAverages = new int[13][2];
@@ -11,112 +16,112 @@ public class Averages {
     Averages() throws IOException, URISyntaxException {
 
         Filter filter = new Filter().collectible().allMinions();
-        List<Card> wild = filter.getCardList();
-        List<Card> standard = filter.standard().getCardList();
+        List<ScoredCard> wildList = filter.getCardList();
+        List<ScoredCard> standardList = filter.standard().getCardList();
 
-        int wildSize = wild.size();
-        int atkWild = wild.stream().mapToInt(Card::getAttack).sum();
-        int healthWild = wild.stream().mapToInt(Card::getHealth).sum();
+        int wildSize = wildList.size();
+        int atkWild = wildList.stream().mapToInt(ScoredCard::getAttack).sum();
+        int healthWild = wildList.stream().mapToInt(ScoredCard::getHealth).sum();
 
-        int zeroWildSize = (int) wild.stream().filter(Check::costZero).count();
-        int atkWildCostZero = wild.stream().filter(Check::costZero).mapToInt(Card::getAttack).sum();
-        int healthWildCostZero = wild.stream().filter(Check::costZero).mapToInt(Card::getHealth).sum();
+        int zeroWildSize = (int) wildList.stream().filter(Check::costZero).count();
+        int atkWildCostZero = wildList.stream().filter(Check::costZero).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostZero = wildList.stream().filter(Check::costZero).mapToInt(ScoredCard::getHealth).sum();
 
-        int oneWildSize = (int) wild.stream().filter(Check::costOne).count();
-        int atkWildCostOne = wild.stream().filter(Check::costOne).mapToInt(Card::getAttack).sum();
-        int healthWildCostOne = wild.stream().filter(Check::costOne).mapToInt(Card::getHealth).sum();
+        int oneWildSize = (int) wildList.stream().filter(Check::costOne).count();
+        int atkWildCostOne = wildList.stream().filter(Check::costOne).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostOne = wildList.stream().filter(Check::costOne).mapToInt(ScoredCard::getHealth).sum();
 
-        int twoWildSize = (int) wild.stream().filter(Check::costTwo).count();
-        int atkWildCostTwo = wild.stream().filter(Check::costTwo).mapToInt(Card::getAttack).sum();
-        int healthWildCostTwo = wild.stream().filter(Check::costTwo).mapToInt(Card::getHealth).sum();
+        int twoWildSize = (int) wildList.stream().filter(Check::costTwo).count();
+        int atkWildCostTwo = wildList.stream().filter(Check::costTwo).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostTwo = wildList.stream().filter(Check::costTwo).mapToInt(ScoredCard::getHealth).sum();
 
-        int threeWildSize = (int) wild.stream().filter(Check::costThree).count();
-        int atkWildCostThree = wild.stream().filter(Check::costThree).mapToInt(Card::getAttack).sum();
-        int healthWildCostThree = wild.stream().filter(Check::costThree).mapToInt(Card::getHealth).sum();
+        int threeWildSize = (int) wildList.stream().filter(Check::costThree).count();
+        int atkWildCostThree = wildList.stream().filter(Check::costThree).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostThree = wildList.stream().filter(Check::costThree).mapToInt(ScoredCard::getHealth).sum();
 
-        int fourWildSize = (int) wild.stream().filter(Check::costFour).count();
-        int atkWildCostFour = wild.stream().filter(Check::costFour).mapToInt(Card::getAttack).sum();
-        int healthWildCostFour = wild.stream().filter(Check::costFour).mapToInt(Card::getHealth).sum();
+        int fourWildSize = (int) wildList.stream().filter(Check::costFour).count();
+        int atkWildCostFour = wildList.stream().filter(Check::costFour).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostFour = wildList.stream().filter(Check::costFour).mapToInt(ScoredCard::getHealth).sum();
 
-        int fiveWildSize = (int) wild.stream().filter(Check::costFive).count();
-        int atkWildCostFive = wild.stream().filter(Check::costFive).mapToInt(Card::getAttack).sum();
-        int healthWildCostFive = wild.stream().filter(Check::costFive).mapToInt(Card::getHealth).sum();
+        int fiveWildSize = (int) wildList.stream().filter(Check::costFive).count();
+        int atkWildCostFive = wildList.stream().filter(Check::costFive).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostFive = wildList.stream().filter(Check::costFive).mapToInt(ScoredCard::getHealth).sum();
 
-        int sixWildSize = (int) wild.stream().filter(Check::costSix).count();
-        int atkWildCostSix = wild.stream().filter(Check::costSix).mapToInt(Card::getAttack).sum();
-        int healthWildCostSix = wild.stream().filter(Check::costSix).mapToInt(Card::getHealth).sum();
+        int sixWildSize = (int) wildList.stream().filter(Check::costSix).count();
+        int atkWildCostSix = wildList.stream().filter(Check::costSix).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostSix = wildList.stream().filter(Check::costSix).mapToInt(ScoredCard::getHealth).sum();
 
-        int sevenWildSize = (int) wild.stream().filter(Check::costSeven).count();
-        int atkWildCostSeven = wild.stream().filter(Check::costSeven).mapToInt(Card::getAttack).sum();
-        int healthWildCostSeven = wild.stream().filter(Check::costSeven).mapToInt(Card::getHealth).sum();
+        int sevenWildSize = (int) wildList.stream().filter(Check::costSeven).count();
+        int atkWildCostSeven = wildList.stream().filter(Check::costSeven).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostSeven = wildList.stream().filter(Check::costSeven).mapToInt(ScoredCard::getHealth).sum();
 
-        int eightWildSize = (int) wild.stream().filter(Check::costEight).count();
-        int atkWildCostEight = wild.stream().filter(Check::costEight).mapToInt(Card::getAttack).sum();
-        int healthWildCostEight = wild.stream().filter(Check::costEight).mapToInt(Card::getHealth).sum();
+        int eightWildSize = (int) wildList.stream().filter(Check::costEight).count();
+        int atkWildCostEight = wildList.stream().filter(Check::costEight).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostEight = wildList.stream().filter(Check::costEight).mapToInt(ScoredCard::getHealth).sum();
 
-        int nineWildSize = (int) wild.stream().filter(Check::costNine).count();
-        int atkWildCostNine = wild.stream().filter(Check::costNine).mapToInt(Card::getAttack).sum();
-        int healthWildCostNine = wild.stream().filter(Check::costNine).mapToInt(Card::getHealth).sum();
+        int nineWildSize = (int) wildList.stream().filter(Check::costNine).count();
+        int atkWildCostNine = wildList.stream().filter(Check::costNine).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostNine = wildList.stream().filter(Check::costNine).mapToInt(ScoredCard::getHealth).sum();
 
-        int tenWildSize = (int) wild.stream().filter(Check::costTen).count();
-        int atkWildCostTen = wild.stream().filter(Check::costTen).mapToInt(Card::getAttack).sum();
-        int healthWildCostTen = wild.stream().filter(Check::costTen).mapToInt(Card::getHealth).sum();
+        int tenWildSize = (int) wildList.stream().filter(Check::costTen).count();
+        int atkWildCostTen = wildList.stream().filter(Check::costTen).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostTen = wildList.stream().filter(Check::costTen).mapToInt(ScoredCard::getHealth).sum();
 
-        int aboveTenWildSize = (int) wild.stream().filter(Check::costGreaterThenTen).count();
-        int atkWildCostAboveTen = wild.stream().filter(Check::costGreaterThenTen).mapToInt(Card::getAttack).sum();
-        int healthWildCostAboveTen = wild.stream().filter(Check::costGreaterThenTen).mapToInt(Card::getHealth).sum();
+        int aboveTenWildSize = (int) wildList.stream().filter(Check::costGreaterThenTen).count();
+        int atkWildCostAboveTen = wildList.stream().filter(Check::costGreaterThenTen).mapToInt(ScoredCard::getAttack).sum();
+        int healthWildCostAboveTen = wildList.stream().filter(Check::costGreaterThenTen).mapToInt(ScoredCard::getHealth).sum();
 
-        int standardSize = standard.size();
-        int atkStandard = standard.stream().mapToInt(Card::getAttack).sum();
-        int healthStandard = standard.stream().mapToInt(Card::getHealth).sum();
+        int standardSize = standardList.size();
+        int atkStandard = standardList.stream().mapToInt(ScoredCard::getAttack).sum();
+        int healthStandard = standardList.stream().mapToInt(ScoredCard::getHealth).sum();
 
-        int zeroStandardSize = (int) standard.stream().filter(Check::costZero).count();
-        int atkStandardCostZero = standard.stream().filter(Check::costZero).mapToInt(Card::getAttack).sum();
-        int healthStandardCostZero = standard.stream().filter(Check::costZero).mapToInt(Card::getHealth).sum();
+        int zeroStandardSize = (int) standardList.stream().filter(Check::costZero).count();
+        int atkStandardCostZero = standardList.stream().filter(Check::costZero).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostZero = standardList.stream().filter(Check::costZero).mapToInt(ScoredCard::getHealth).sum();
 
-        int oneStandardSize = (int) standard.stream().filter(Check::costOne).count();
-        int atkStandardCostOne = standard.stream().filter(Check::costOne).mapToInt(Card::getAttack).sum();
-        int healthStandardCostOne = standard.stream().filter(Check::costOne).mapToInt(Card::getHealth).sum();
+        int oneStandardSize = (int) standardList.stream().filter(Check::costOne).count();
+        int atkStandardCostOne = standardList.stream().filter(Check::costOne).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostOne = standardList.stream().filter(Check::costOne).mapToInt(ScoredCard::getHealth).sum();
 
-        int twoStandardSize = (int) standard.stream().filter(Check::costTwo).count();
-        int atkStandardCostTwo = standard.stream().filter(Check::costTwo).mapToInt(Card::getAttack).sum();
-        int healthStandardCostTwo = standard.stream().filter(Check::costTwo).mapToInt(Card::getHealth).sum();
+        int twoStandardSize = (int) standardList.stream().filter(Check::costTwo).count();
+        int atkStandardCostTwo = standardList.stream().filter(Check::costTwo).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostTwo = standardList.stream().filter(Check::costTwo).mapToInt(ScoredCard::getHealth).sum();
 
-        int threeStandardSize = (int) standard.stream().filter(Check::costThree).count();
-        int atkStandardCostThree = standard.stream().filter(Check::costThree).mapToInt(Card::getAttack).sum();
-        int healthStandardCostThree = standard.stream().filter(Check::costThree).mapToInt(Card::getHealth).sum();
+        int threeStandardSize = (int) standardList.stream().filter(Check::costThree).count();
+        int atkStandardCostThree = standardList.stream().filter(Check::costThree).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostThree = standardList.stream().filter(Check::costThree).mapToInt(ScoredCard::getHealth).sum();
 
-        int fourStandardSize = (int) standard.stream().filter(Check::costFour).count();
-        int atkStandardCostFour = standard.stream().filter(Check::costFour).mapToInt(Card::getAttack).sum();
-        int healthStandardCostFour = standard.stream().filter(Check::costFour).mapToInt(Card::getHealth).sum();
+        int fourStandardSize = (int) standardList.stream().filter(Check::costFour).count();
+        int atkStandardCostFour = standardList.stream().filter(Check::costFour).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostFour = standardList.stream().filter(Check::costFour).mapToInt(ScoredCard::getHealth).sum();
 
-        int fiveStandardSize = (int) standard.stream().filter(Check::costFive).count();
-        int atkStandardCostFive = standard.stream().filter(Check::costFive).mapToInt(Card::getAttack).sum();
-        int healthStandardCostFive = standard.stream().filter(Check::costFive).mapToInt(Card::getHealth).sum();
+        int fiveStandardSize = (int) standardList.stream().filter(Check::costFive).count();
+        int atkStandardCostFive = standardList.stream().filter(Check::costFive).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostFive = standardList.stream().filter(Check::costFive).mapToInt(ScoredCard::getHealth).sum();
 
-        int sixStandardSize = (int) standard.stream().filter(Check::costSix).count();
-        int atkStandardCostSix = standard.stream().filter(Check::costSix).mapToInt(Card::getAttack).sum();
-        int healthStandardCostSix = standard.stream().filter(Check::costSix).mapToInt(Card::getHealth).sum();
+        int sixStandardSize = (int) standardList.stream().filter(Check::costSix).count();
+        int atkStandardCostSix = standardList.stream().filter(Check::costSix).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostSix = standardList.stream().filter(Check::costSix).mapToInt(ScoredCard::getHealth).sum();
 
-        int sevenStandardSize = (int) standard.stream().filter(Check::costSeven).count();
-        int atkStandardCostSeven = standard.stream().filter(Check::costSeven).mapToInt(Card::getAttack).sum();
-        int healthStandardCostSeven = standard.stream().filter(Check::costSeven).mapToInt(Card::getHealth).sum();
+        int sevenStandardSize = (int) standardList.stream().filter(Check::costSeven).count();
+        int atkStandardCostSeven = standardList.stream().filter(Check::costSeven).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostSeven = standardList.stream().filter(Check::costSeven).mapToInt(ScoredCard::getHealth).sum();
 
-        int eightStandardSize = (int) standard.stream().filter(Check::costEight).count();
-        int atkStandardCostEight = standard.stream().filter(Check::costEight).mapToInt(Card::getAttack).sum();
-        int healthStandardCostEight = standard.stream().filter(Check::costEight).mapToInt(Card::getHealth).sum();
+        int eightStandardSize = (int) standardList.stream().filter(Check::costEight).count();
+        int atkStandardCostEight = standardList.stream().filter(Check::costEight).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostEight = standardList.stream().filter(Check::costEight).mapToInt(ScoredCard::getHealth).sum();
 
-        int nineStandardSize = (int) standard.stream().filter(Check::costNine).count();
-        int atkStandardCostNine = standard.stream().filter(Check::costNine).mapToInt(Card::getAttack).sum();
-        int healthStandardCostNine = standard.stream().filter(Check::costNine).mapToInt(Card::getHealth).sum();
+        int nineStandardSize = (int) standardList.stream().filter(Check::costNine).count();
+        int atkStandardCostNine = standardList.stream().filter(Check::costNine).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostNine = standardList.stream().filter(Check::costNine).mapToInt(ScoredCard::getHealth).sum();
 
-        int tenStandardSize = (int) standard.stream().filter(Check::costTen).count();
-        int atkStandardCostTen = standard.stream().filter(Check::costTen).mapToInt(Card::getAttack).sum();
-        int healthStandardCostTen = standard.stream().filter(Check::costTen).mapToInt(Card::getHealth).sum();
+        int tenStandardSize = (int) standardList.stream().filter(Check::costTen).count();
+        int atkStandardCostTen = standardList.stream().filter(Check::costTen).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostTen = standardList.stream().filter(Check::costTen).mapToInt(ScoredCard::getHealth).sum();
 
-        int aboveTenStandardSize = (int) standard.stream().filter(Check::costGreaterThenTen).count();
-        int atkStandardCostAboveTen = standard.stream().filter(Check::costGreaterThenTen).mapToInt(Card::getAttack).sum();
-        int healthStandardCostAboveTen = standard.stream().filter(Check::costGreaterThenTen).mapToInt(Card::getHealth).sum();
+        int aboveTenStandardSize = (int) standardList.stream().filter(Check::costGreaterThenTen).count();
+        int atkStandardCostAboveTen = standardList.stream().filter(Check::costGreaterThenTen).mapToInt(ScoredCard::getAttack).sum();
+        int healthStandardCostAboveTen = standardList.stream().filter(Check::costGreaterThenTen).mapToInt(ScoredCard::getHealth).sum();
 
         this.wildAverages[0][0] = atkWildCostZero / zeroWildSize;
         this.wildAverages[0][1] = healthWildCostZero / zeroWildSize;
@@ -195,6 +200,44 @@ public class Averages {
 
         this.standardAverages[12][0] = atkStandard / standardSize;
         this.standardAverages[12][1] = healthStandard / standardSize;
+
+
+        LinkedHashMap<String, int[]> standard = new LinkedHashMap<>();
+        standard.put("0", this.standardAverages[0]);
+        standard.put("1", this.standardAverages[1]);
+        standard.put("2", this.standardAverages[2]);
+        standard.put("3", this.standardAverages[3]);
+        standard.put("4", this.standardAverages[4]);
+        standard.put("5", this.standardAverages[5]);
+        standard.put("6", this.standardAverages[6]);
+        standard.put("7", this.standardAverages[7]);
+        standard.put("8", this.standardAverages[8]);
+        standard.put("9", this.standardAverages[9]);
+        standard.put("10", this.standardAverages[10]);
+        standard.put(">10", this.standardAverages[11]);
+        standard.put("All", this.standardAverages[12]);
+
+
+        LinkedHashMap<String, int[]> wild = new LinkedHashMap<>();
+        wild.put("0", this.wildAverages[0]);
+        wild.put("1", this.wildAverages[1]);
+        wild.put("2", this.wildAverages[2]);
+        wild.put("3", this.wildAverages[3]);
+        wild.put("4", this.wildAverages[4]);
+        wild.put("5", this.wildAverages[5]);
+        wild.put("6", this.wildAverages[6]);
+        wild.put("7", this.wildAverages[7]);
+        wild.put("8", this.wildAverages[8]);
+        wild.put("9", this.wildAverages[9]);
+        wild.put("10", this.wildAverages[10]);
+        wild.put(">10", this.wildAverages[11]);
+        wild.put("All", this.wildAverages[12]);
+
+        LinkedHashMap<String, LinkedHashMap<String, int[]>> averages = new LinkedHashMap<>();
+        averages.put("Wild", wild);
+        averages.put("Standard", standard);
+
+        new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\Averages.json"), averages);
     }
 }
 
