@@ -2,11 +2,9 @@ package com;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class ScoredCard {
@@ -87,6 +85,8 @@ public class ScoredCard {
     private boolean temporary;
     private int tempCount;
 
+
+
     ScoredCard(Card card, Ratios ratios) {
         this.id = card.getId();
         this.collectible = card.getCollectible();
@@ -132,6 +132,7 @@ public class ScoredCard {
 
         this.damageScoreStandard = ratios.getScores()[1][0];
         this.survivalScoreStandard = ratios.getScores()[1][1];
+
     }
 
     ScoredCard(JsonNode node){
@@ -208,7 +209,6 @@ public class ScoredCard {
         return slug;
     }
 
-
     public void setClassId(int classId) {
         this.classId = classId;
     }
@@ -216,7 +216,6 @@ public class ScoredCard {
     public int getClassId() {
         return classId;
     }
-
 
     public void setMultiClassIds(int[] multiClassIds) {
         this.multiClassIds = multiClassIds;
@@ -289,7 +288,6 @@ public class ScoredCard {
     public void setStandard(boolean standard) {
         this.standard = standard;
     }
-
 
     public int getManaCost() {
         return manaCost;
@@ -472,8 +470,6 @@ public class ScoredCard {
 
     }
 
-
-
     public void setDamageScoreWild(double damageScoreWild) {
         this.damageScoreWild = damageScoreWild;
     }
@@ -521,7 +517,6 @@ public class ScoredCard {
     public void setMinionScoreWild(double minionScoreWild) {
         this.minionScoreWild = minionScoreWild;
     }
-
     public double getMinionScoreWild() {
         try {
             return Double.parseDouble(new BigDecimal(minionScoreWild).round(m).toString());
@@ -533,7 +528,6 @@ public class ScoredCard {
     public void setMinionScoreStandard(double minionScoreStandard) {
         this.minionScoreStandard = minionScoreStandard;
     }
-
     public double getMinionScoreStandard() {
         try {
             return Double.parseDouble(new BigDecimal(minionScoreStandard).round(m).toString());

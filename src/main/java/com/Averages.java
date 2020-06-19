@@ -13,7 +13,7 @@ public class Averages {
     protected int[][] wildAverages = new int[13][2];
     protected int[][] standardAverages = new int[13][2];
 
-    Averages() throws IOException, URISyntaxException {
+    Averages() throws IOException {
 
         Filter filter = new Filter().collectible().allMinions();
         List<ScoredCard> wildList = filter.getCardList();

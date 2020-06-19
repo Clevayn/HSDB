@@ -19,11 +19,13 @@ public class KeywordValue {
             LinkedHashMap<String, Double> byKeyword = new LinkedHashMap<>();
             for (int kw: kwId
                  ) {
-                if (kw(kw, id) != 0) byKeyword.put(ValueTranslator.keywordName(kw), 1 +(1 - (kw(kw, id) / id(id).size())));
+                if (kw(kw, id) != 0) byKeyword.put(ValueTranslator.keywordName(kw),1 + ((kw(kw, id) / id(id).size())));
             }
             byClass.put(ValueTranslator.classNames(id), byKeyword);
         }
-        new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\KeywordValue.json"), byClass);
+        new ObjectMapper()
+                .writerWithDefaultPrettyPrinter()
+                .writeValue(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\KeywordValue.json"), byClass);
     }
 
     List<ScoredCard> id(int id) throws IOException {

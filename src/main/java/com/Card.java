@@ -10,33 +10,33 @@ import java.util.ArrayList;
 
 public class Card {
     private final MathContext m = new MathContext(20);
-    private int id;
-    private int collectible;
-    private String slug;
-    private int classId;
-    private int [] multiClassIds;
-    private int minionTypeId;
-    private int cardTypeId;
-    private int cardSetId;
-    private int rarityId;
-    private String artistName;
+    private final int id;
+    private final int collectible;
+    private final String slug;
+    private final int classId;
+    private final int [] multiClassIds;
+    private final int minionTypeId;
+    private final int cardTypeId;
+    private final int cardSetId;
+    private final int rarityId;
+    private final String artistName;
 
     private double minionScoreWild;
     private double minionScoreStandard;
 
-    private int health;
-    private int attack;
-    private int manaCost;
-    private int durability;
-    private String name;
-    private String text;
-    private String image;
-    private String imageGold;
-    private String flavorText;
-    private String cropImage;
-    private int parentId;
-    private int [] childIds;
-    private int [] keywordIds;
+    private final int health;
+    private final int attack;
+    private final int manaCost;
+    private final int durability;
+    private final String name;
+    private final String text;
+    private final String image;
+    private final String imageGold;
+    private final String flavorText;
+    private final String cropImage;
+    private final int parentId;
+    private final int [] childIds;
+    private final int [] keywordIds;
 
     private boolean standard = false;
 
@@ -381,8 +381,6 @@ public class Card {
 
     }
 
-
-
     public void setDamageScoreWild(double damageScoreWild) {
         this.damageScoreWild = damageScoreWild;
     }
@@ -430,7 +428,6 @@ public class Card {
     public void setMinionScoreWild(double minionScoreWild) {
         this.minionScoreWild = minionScoreWild;
     }
-
     public double getMinionScoreWild() {
         try {
             return Double.parseDouble(new BigDecimal(minionScoreWild).round(m).toString());
@@ -442,7 +439,6 @@ public class Card {
     public void setMinionScoreStandard(double minionScoreStandard) {
         this.minionScoreStandard = minionScoreStandard;
     }
-
     public double getMinionScoreStandard() {
         try {
             return Double.parseDouble(new BigDecimal(minionScoreStandard).round(m).toString());

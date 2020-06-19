@@ -91,20 +91,20 @@ public class KeywordValueModifier {
                 .filter(Check::isRepeat)
                 .count();
 
-        this.enhancedMod = 1 + (1 - this.enhanced / allMinions);
-        this.triggerMod = 1 + (1 - this.trigger / allMinions);
+        this.enhancedMod = 1 - (this.enhanced / allMinions);
+        this.triggerMod = 1 - (this.trigger / allMinions);
 
-        this.passiveMod = 1 + (1 - this.passive / allMinions) ;
-        this.activeMod = 1 + (1 - this.active / allMinions);
+        this.passiveMod = 1 - (this.passive / allMinions);
+        this.activeMod = 1 - (this.active / allMinions);
 
-        this.permanentMod = 1 + (1 - this.permanent / allMinions);
-        this.temporaryMod = 1 + (1 - this.temporary / allMinions);
+        this.permanentMod = 1 - (this.permanent / allMinions);
+        this.temporaryMod = 1 - (this.temporary / allMinions);
 
-        this.controlMod = 1 + (1 - this.control / allMinions);
-        this.dblEdgeMod = 1 + (1 - this.dblEdge / allMinions);
-        this.bonusMod = 1 + (1 - this.bonus / allMinions);
-        this.drawMod = 1 + (1 - this.draw / allMinions);
-        this.repeatMod = 1 + (1 - this.repeat / allMinions);
+        this.controlMod = 1 - (this.control / allMinions);
+        this.dblEdgeMod = 1 - (this.dblEdge / allMinions);
+        this.bonusMod = 1 - (this.bonus / allMinions);
+        this.drawMod = 1 - (this.draw / allMinions);
+        this.repeatMod = 1 - (this.repeat / allMinions);
 
         modifierValues.put("Enhanced", this.enhancedMod);
         modifierValues.put("Enhanced Count", this.enhanced);

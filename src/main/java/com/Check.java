@@ -49,161 +49,166 @@ public class Check {
     }
 
     static boolean isControl(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
              ) {
-            if (i == 1 || i == 4 || i == 5 || i == 6 || i == 10 || i == 14 ||
-                    i == 15 || i == 16 || i == 17 || i == 21 || i == 31 || i == 32 ||
-                    i == 34 || i == 53) return true;
+            if (kw == 1 || kw == 4 || kw == 5 || kw == 6 || kw == 10 || kw == 14 ||
+                    kw == 15 || kw == 16 || kw == 17 || kw == 21 || kw == 31 || kw == 32 ||
+                    kw == 34 || kw == 53) return true;
         }
         return false;
     }
 
     static boolean isSpellTrigger(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 5 || i == 8 || i == 12 || i == 13  || i == 14 || i == 16 || i == 20 || i == 21 || i == 31 || i == 34 ||
-            i == 39 || i == 52 || i == 61 || i == 71 || i == 76 || i == 78 || i == 79 || i == 86)
+            if (kw == 5 || kw == 8 || kw == 12 || kw == 13  || kw == 14 || kw == 16 || kw == 20 || kw == 21 || kw == 31 || kw == 34 ||
+            kw == 39 || kw == 52 || kw == 61 || kw == 71 || kw == 76 || kw == 78 || kw == 79 || kw == 86)
                 return true;
         }
         return false;
     }
 
     static boolean isEnhanced(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 1 || i == 2 || i == 3 || i == 4 || i == 6 || i == 10 || i == 11 ||
-                    i == 15 || i == 17 || i == 32 || i == 38 || i == 53 || i == 66 || i == 77)
+            if (kw == 1 || kw == 2 || kw == 3 || kw == 4 || kw == 6 || kw == 10 || kw == 11 ||
+                    kw == 15 || kw == 17 || kw == 32 || kw == 38 || kw == 53 || kw == 66 || kw == 77)
                 return true;
         }
         return false;
     }
 
     static boolean isBonus(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 2 || i == 38 || i == 61 || i == 86)
+            if (kw == 2 || kw == 38 || kw == 61 || kw == 86)
                 return true;
         }
         return false;
     }
 
     static boolean isDraw(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 21 || i == 71)
+            if (kw == 21 || kw == 71)
                 return true;
         }
         return false;
     }
 
     static boolean isRepeat(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 52 || i == 76 || i == 78)
+            if (kw == 52 || kw == 76 || kw == 78)
                 return true;
         }
         return false;
     }
 
     static boolean isPassive(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 1 || i == 2 || i == 3 || i == 5 || i == 6 || i == 12 || i == 14 || i == 16 || i == 17 ||
-            i == 31 || i == 76 || i == 79 || i == 78)
+            if (kw == 1 || kw == 2 || kw == 3 || kw == 5 || kw == 6 || kw == 12 || kw == 14 || kw == 16 || kw == 17 ||
+            kw == 31 || kw == 76 || kw == 79 || kw == 78)
                 return true;
         }
         return false;
     }
 
     static boolean isActive(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 4 || i == 8 || i == 10 || i == 11 || i == 13 || i == 15 || i == 20 || i == 21 ||
-                    i == 32 || i == 34 || i == 38 || i == 39 || i == 52 || i == 53 || i == 61 || i == 66 ||
-                    i == 71 || i == 77 || i == 86)
+            if (kw == 4 || kw == 8 || kw == 10 || kw == 11 || kw == 13 || kw == 15 || kw == 20 || kw == 21 ||
+                    kw == 32 || kw == 34 || kw == 38 || kw == 39 || kw == 52 || kw == 53 || kw == 61 || kw == 66 ||
+                    kw == 71 || kw == 77 || kw == 86)
                 return true;
         }
         return false;
     }
 
     static boolean isPerm(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 1 || i == 2 || i == 10 || i == 11 || i == 17 || i == 20 || i == 31 ||
-                    i == 32 || i == 38 || i == 61 || i == 66 || i == 77)
+            if (kw == 1 || kw == 2 || kw == 10 || kw == 11 || kw == 17 || kw == 20 || kw == 31 ||
+                    kw == 32 || kw == 38 || kw == 61 || kw == 66 || kw == 77)
                 return true;
         }
         return false;
     }
 
     static boolean isTemp(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 3 || i == 4 || i == 5 || i == 6 || i == 8 || i == 12 || i == 13 ||
-                    i == 14 || i == 15 || i == 16 || i == 21 || i == 34 || i == 39 || i == 52 ||
-            i == 53 || i == 71 || i == 76 || i == 78 || i == 86)
+            if (kw == 3 || kw == 4 || kw == 5 || kw == 6 || kw == 8 || kw == 12 || kw == 13 ||
+                    kw == 14 || kw == 15 || kw == 16 || kw == 21 || kw == 34 || kw == 39 || kw == 52 ||
+            kw == 53 || kw == 71 || kw == 76 || kw == 78 || kw == 86)
                 return true;
         }
         return false;
     }
 
     static boolean isDblEdge(Card card){
-        for (int i: card.getKeywordIds()
+        for (int kw: card.getKeywordIds()
         ) {
-            if (i == 14 || i == 66 || i == 86)
+            if (kw == 14 || kw == 66 || kw == 86)
                 return true;
         }
         return false;
     }
 
+    static boolean isDblEdgeInt(int kw){
+        return kw == 14 || kw == 66 || kw == 86;
+    }
 
     static boolean isTempInt(int kw){
 
-        return kw == 3 || kw == 78 || kw == 34 || kw == 6 ||
-                kw == 66 || kw == 10 || kw == 4 || kw == 53;
+        return kw == 3 || kw == 4 || kw == 5 || kw == 6 || kw == 8 || kw == 12 || kw == 13 ||
+                kw == 14 || kw == 15 || kw == 16 || kw == 21 || kw == 34 || kw == 39 || kw == 52 ||
+                kw == 53 || kw == 71 || kw == 76 || kw == 78 || kw == 86;
     }
 
     static boolean isPermInt(int kw){
-        return kw == 32 || kw == 17 || kw == 11 || kw == 77 ||
-                kw == 2 || kw == 38 || kw == 15 || kw == 16 ||
-                kw == 1;
+        return kw == 1 || kw == 2 || kw == 10 || kw == 11 || kw == 17 || kw == 20 || kw == 31 ||
+                kw == 32 || kw == 38 || kw == 61 || kw == 66 || kw == 77;
     }
 
     static boolean isBonusInt(int kw){
-        return kw == 39 || kw == 52 || kw == 76 || kw == 71 ||
-                kw == 14 ;
+        return kw == 2 || kw == 38 || kw == 61 || kw == 86;
     }
 
     static boolean isEnhancedInt(int kw){
-        return kw == 32 || kw == 3 || kw == 17 || kw == 78 || kw == 11
-                || kw == 77 || kw == 2 || kw == 6 || kw == 38 ||
-                kw == 34 || kw == 66;
+        return kw == 1 || kw == 2 || kw == 3 || kw == 4 || kw == 6 || kw == 10 || kw == 11 ||
+                kw == 15 || kw == 17 || kw == 32 || kw == 38 || kw == 53 || kw == 66 || kw == 77;
     }
 
     static boolean isControlInt(int kw){
-        return kw == 10 || kw == 5 || kw == 15 || kw == 16 || kw == 14 || kw == 4 ||
-                kw == 53 || kw == 1 || kw == 21 || kw == 39 || kw == 52 ||
-                kw == 71;
+        return kw == 1 || kw == 4 || kw == 5 || kw == 6 || kw == 10 || kw == 14 ||
+                kw == 15 || kw == 16 || kw == 17 || kw == 21 || kw == 31 || kw == 32 ||
+                kw == 34 || kw == 53;
     }
 
     static boolean isRepeatInt(int kw){
-        return kw == 52 || kw == 76;
+        return kw == 52 || kw == 76 || kw == 78;
     }
 
     static boolean isDrawInt(int kw){
-        return kw == 21 || kw == 39 || kw == 71 ;
+        return kw == 21 || kw == 71;
     }
 
     static boolean isPassiveInt(int kw){
-        return kw == 12 || kw == 8 || kw == 13 || kw == 31;
+        return kw == 1 || kw == 2 || kw == 3 || kw == 5 || kw == 6 || kw == 12 || kw == 14 || kw == 16 || kw == 17 ||
+                kw == 31 || kw == 76 || kw == 79 || kw == 78;
     }
 
     static boolean isActiveInt(int kw){
-        return kw == 61 || kw == 20 || kw == 5;
+        return kw == 4 || kw == 8 || kw == 10 || kw == 11 || kw == 13 || kw == 15 || kw == 20 || kw == 21 ||
+                kw == 32 || kw == 34 || kw == 38 || kw == 39 || kw == 52 || kw == 53 || kw == 61 || kw == 66 ||
+                kw == 71 || kw == 77 || kw == 86;
     }
 
     static boolean isSpellTriggerInt(int kw){
-        return kw == 12 || kw == 8 || kw == 61 || kw == 20 || kw == 13;
+        return kw == 5 || kw == 8 || kw == 12 || kw == 13  || kw == 14 || kw == 16 || kw == 20 || kw == 21 || kw == 31 || kw == 34 ||
+                kw == 39 || kw == 52 || kw == 61 || kw == 71 || kw == 76 || kw == 78 || kw == 79 || kw == 86;
     }
 
     static boolean isTaunt(Card card){
