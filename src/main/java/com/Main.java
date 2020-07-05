@@ -1,17 +1,14 @@
 package com;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException {
+        Filter cardPool = new Filter();
+        List<ScoredCard> cards = cardPool.getCardList();
+
         /*JsonNode modifier = mapper.readTree(
                 new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\KeywordScore.json"));
         List<ScoredCard> list = new Filter().allMinions().getCardList();
@@ -37,7 +34,7 @@ public class Main {
 
         //new Text().wordList();
 
-        LinkedHashMap<String, String> definitions = new LinkedHashMap<>();
+        /*LinkedHashMap<String, String> definitions = new LinkedHashMap<>();
         JsonNode words = new ObjectMapper().readTree(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\WordList.json"));
 
 
@@ -45,10 +42,16 @@ public class Main {
              ) {
             String s = node.asText();
             System.out.println(new WordsAPI(s).getOutput());
+        }*/
+
+
+        //new WordDictionary("kill");
+
+
+        for (ScoredCard card: cards
+             ) {
+            System.out.println(new StringCleaner(card.getText()).getString());
         }
-
-
-
 
 
 

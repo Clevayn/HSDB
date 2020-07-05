@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="JavaKotlinSandbox" target="1.11" />
+      <module name="JavaKotlinSandbox" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
