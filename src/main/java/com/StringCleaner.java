@@ -17,13 +17,15 @@ public class StringCleaner {
     String input;
     StringCleaner(String input) throws IOException {
         this.input = input;
-        properNamesCleaner();
+        //properNamesCleaner();
 
         italicCleaner();
 
+        keywordCleaner();
+
         numCleaner();
 
-        keywordCleaner();
+
 
         punCleaner();
 
@@ -54,78 +56,66 @@ public class StringCleaner {
         return this;
     }
 
-    StringCleaner properNamesCleaner() throws IOException {
+    void properNamesCleaner() throws IOException {
         for (JsonNode string: mapper.readTree(ProperNames)
              ) {
             if (!string.asText().toLowerCase().equals("polymorph: ???"))
             this.input = this.input.replaceAll("\\b" + string.asText().toLowerCase() + "\\b", "").toLowerCase();
         }
-        return this;
     }
 
-    public StringCleaner italicCleaner(){
+    public void italicCleaner(){
         if (this.input.contains("<i>")) this.input = this.input.replaceAll(input.substring(input.indexOf("<i>"), input.indexOf("</i>") + 4), "");
-        return this;
     }
 
-    public StringCleaner classCleaner(){
-        String [] classNames = {"druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warlock",
-                "warrior", "demon hunter"};
+    public void classCleaner(){
+        String [] classNames = {"Druid", "Hunter", "Mage", "Paladin", "Priest", "Rogue", "Shaman", "Warlock",
+                "Warrior", "Demon Hunter"};
         for (String s: classNames
         ) {
             input = input.replaceAll("\\b" +s+ "\\b", "");
         }
-        return this;
     }
 
-    public StringCleaner phraseCleaner(){
-        String [] phrases = {"passive hero power", "hero power", "hero powers", "start of combat", "illidari",
-                "charrrrrge", "side quest", "reward", "'azari the devourer'", "sealed un'goro pack", "jade idols",
-                "dinosaur forms", "ly", "stars' fury", "king krush", "'deal damage'", "pogo hopper", "razorpetals",
-                "pterrordaxes", };
+    public void phraseCleaner(){
+        String [] phrases = {"Illidari",
+                "Charrrrrge", "Side Quest", "Reward", "'Azari the Devourer'", "Sealed Un'Goro Pack", "Jade Idols",
+                "Dinosaur Forms", "ly", "Stars' Fury", "king Krush", "'deal damage'", "Pogo Hopper", "Razorpetals",
+                "Pterrordaxes", };
         for (String s: phrases
         ) {
             this.input = this.input.replaceAll("mana crystals", "mana");
             this.input = this.input.replaceAll(s, "");
         }
-        return this;
     }
 
-    public StringCleaner tokenCleaner(){
-        String [] tokens = {"squirrels", "treants", "felwings", "bees", "loti's", "dryads", "raptors", "saplings",
-                "cat", "bear", "rats", "lynxes", "wolves", "hyenas", "webspinners", "locusts", "goblin bombs",
-                "sandwasps", "microcopters", "true silver champion", "mithril golems", "boom bots", "jo-e bot",
-        "spiders", "wisps"};
+    public void tokenCleaner(){
+        String [] tokens = {"[Ss]quirrels", "[Tt]reant[s]", "[Ff]elwings", "[Bb]ees", "[Ll]oti's", "[Dd]ryads",
+                "[Rr]aptors", "[Ss]aplings",
+                "[Cc]at", "[Bb]ear", "[Rr]ats", "[Ll]ynxes", "[Ww]olves", "[Hh]yenas", "[Ww]ebspinners", "[Ll]ocusts",
+                "[Gg]oblin [Bb]ombs",
+                "[Ss]andwasps", "[Mm]icrocopters", "True Silver Champion", "[Mm]ithril [Gg]olems", "[Bb]oom [Bb]ots",
+                "Jo-E Bot",
+        "[Ss]piders", "[Ww]isps"};
         for (String s: tokens
         ) {
             input = input.replaceAll("\\b"+s+"\\b", "");
         }
-        return this;
     }
 
-    public StringCleaner minionTypeCleaner(){
-        String [] minionType = {"murloc", "demon", "mech", "elemental", "beast", "totem", "pirate", "dragon"};
+    public void minionTypeCleaner(){
+        String [] minionType = {"Murloc", "Demon", "Mech", "Elemental", "Beast", "Totem", "Pirate", "Dragon"};
         for (String s: minionType
         ) {
             input = input.replaceAll("\\b"+s+"\\b", "");
         }
-        return this;
     }
 
-    public StringCleaner numCleaner(){
+    public void numCleaner(){
 
         input = input.replaceAll("\\b\\d\\d\\b", "");
         input = input.replaceAll("\\b\\d\\b", "");
 
-        /*String [] numbersArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8","9", "10", "11", "12", "13","14", "15",
-                "16", "20", "21", "22", "23", "25", "59", "66", "32", "55", "52", "24", "42", "53",
-                "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-
-        for (String s: numbersArr
-        ) {
-            input = input.replaceAll("\\b" + s + "\\b", "");
-        }*/
-        return this;
     }
 
     public StringCleaner numReplace(){
@@ -141,64 +131,68 @@ public class StringCleaner {
         return this;
     }
 
-    public StringCleaner punCleaner(){
-        input = input.replaceAll("[[:punct:]]+", "");
-        input = input.replaceAll("[\\x21-\\x2F]+", "");
-        /*String [] punctuationArr = { "+", "<b>", "</b>", "+", "/", "\"", ".", ",", ":", ";", "(", ")", "-", "\\", "?", "!", "''"};
+    public void punCleaner(){
+        input = input.replaceAll("[\\x21-\\x2F\\x3A-\\x3F]+" , " ");
 
-        for (String s: punctuationArr
-        ) {
-            input = input.replace(s, "  ");
-        }*/
-        return this;
     }
 
-    public StringCleaner keywordCleaner() {
+    public void keywordCleaner() {
         LinkedList<String> keywords = new LinkedList<>();
-        keywords.add("<b>taunt</b>");
-        keywords.add("<b>spell power</b>");
-        keywords.add("<b>divine shield</b>");
-        keywords.add("<b>charge</b>");
-        keywords.add("<b>secret</b>");
-        keywords.add("<b>stealth</b>");
-        keywords.add("<b>battlecry</b>");
-        keywords.add("<b>freeze</b>");
-        keywords.add("<b>windfury</b>");
-        keywords.add("<b>deathrattle</b>");
-        keywords.add("<b>combo</b>");
-        keywords.add("<b>overload</b>");
-        keywords.add("<b>silence</b>");
-        keywords.add("<b>counter</b>");
-        keywords.add("<b>immune</b>");
-        keywords.add("<b>inspire</b>");
-        keywords.add("<b>discover</b>");
-        keywords.add("<b>quest</b>");
-        keywords.add("<b>poisonous</b>");
-        keywords.add("<b>adapt</b>");
-        keywords.add("<b>lifesteal</b>");
-        keywords.add("<b>recruit</b>");
-        keywords.add("<b>echo</b>");
-        keywords.add("<b>rush</b>");
-        keywords.add("<b>overkill</b>");
-        keywords.add("<b>magnetic</b>");
-        keywords.add("<b>lackey</b>");
-        keywords.add("<b>twinspell</b>");
-        keywords.add("<b>mega-windfury</b>");
-        keywords.add("<b>reborn</b>");
-        keywords.add("<b>invoke</b>");
-        keywords.add("<b>outcast</b>");
+        keywords.add("<b>Taunt</b>");
+        keywords.add("<b>Spell Power</b>");
+        keywords.add("<b>Divine Shield</b>");
+        keywords.add("<b>Charge</b>");
+        keywords.add("<b>Secret:</b>");
+        keywords.add("<b>Stealth</b>");
+        keywords.add("<b>Battlecry:</b>");
+        keywords.add("<b>Freeze</b>");
+        keywords.add("<b>Windfury</b>");
+        keywords.add("<b>Deathrattle:</b>");
+        keywords.add("<b>Combo:</b>");
+        keywords.add("<b>Overload:</b>");
+        keywords.add("<b>Silence</b>");
+        keywords.add("<b>Counter:</b>");
+        keywords.add("<b>Immune</b>");
+        keywords.add("<b>Inspire:</b>");
+        keywords.add("<b>Discover:</b>");
+        keywords.add("<b>Quest:</b>");
+        keywords.add("<b>Poisonous</b>");
+        keywords.add("<b>Adapt</b>");
+        keywords.add("<b>Lifesteal</b>");
+        keywords.add("<b>Recruit:</b>");
+        keywords.add("<b>Echo:</b>");
+        keywords.add("<b>Rush</b>");
+        keywords.add("<b>Overkill:</b>");
+        keywords.add("<b>Magnetic</b>");
+        keywords.add("<b>Lackey</b>");
+        keywords.add("<b>Twinspell</b>");
+        keywords.add("<b>Mega-Windfury</b>");
+        keywords.add("<b>Reborn</b>");
+        keywords.add("<b>Invoke</b>");
+        keywords.add("<b>Outcast[:]</b>");
+        keywords.add("<b>Passive Hero Power</b>");
+        keywords.add("<b>Rush</b>");
+        keywords.add("<b>Hero Power</b>");
+        keywords.add("<b>Start of Combat:</b>");
+        keywords.add("<b>Lifesteal</b>");
+        keywords.add("<b>Immune</b>");
+        keywords.add("<b>Discover</b>");
+        keywords.add("<b>Lifesteal</b>");
+        keywords.add("<b>Dormant</b>");
+        keywords.add("<b>Sidequest:</b>");
+        keywords.add("<b>Reward</b>");
+        keywords.addLast("<b>Choose One-</b>");
+
 
         for (String s: keywords
         ) {
             input = input.replaceAll(s, "");
         }
-        return this;
     }
 
-    public StringCleaner blankSpaceCleaner(){
+    public void blankSpaceCleaner(){
         input = input.replaceAll("&nbsp", " ");
         input = input.replaceAll( "\\s+", " ");
-        return this;
 
     }
 
