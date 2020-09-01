@@ -86,6 +86,7 @@ public class ScoredCard {
     private int tempCount;
 
 
+    ScoredCard(){}
 
     ScoredCard(Card card, Ratios ratios) {
         this.id = card.getId();

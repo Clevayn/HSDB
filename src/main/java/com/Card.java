@@ -10,35 +10,34 @@ import java.util.ArrayList;
 
 public class Card {
     private final MathContext m = new MathContext(20);
-    private final int id;
-    private final int collectible;
-    private final String slug;
-    private final int classId;
-    private final int [] multiClassIds;
-    private final int minionTypeId;
-    private final int cardTypeId;
-    private final int cardSetId;
-    private final int rarityId;
-    private final String artistName;
+    private int id;
+    private int collectible;
+    private String slug;
+    private int classId;
+    private int [] multiClassIds;
+    private int minionTypeId;
+    private int cardTypeId;
+    private int cardSetId;
+    private int rarityId;
+    private String artistName;
+    private int health;
+    private int attack;
+    private int manaCost;
+    private int durability;
+    private String name;
+    private String text;
+    private String image;
+    private String imageGold;
+    private String flavorText;
+    private String cropImage;
+    private int parentId;
+    private int [] childIds;
+    private int [] keywordIds;
+
+    private boolean standard = false;
 
     private double minionScoreWild;
     private double minionScoreStandard;
-
-    private final int health;
-    private final int attack;
-    private final int manaCost;
-    private final int durability;
-    private final String name;
-    private final String text;
-    private final String image;
-    private final String imageGold;
-    private final String flavorText;
-    private final String cropImage;
-    private final int parentId;
-    private final int [] childIds;
-    private final int [] keywordIds;
-
-    private boolean standard = false;
 
     private double damageRatioWild;
     private double damageRatioWildCost;
@@ -85,6 +84,11 @@ public class Card {
 
     private boolean temporary;
     private int tempCount;
+
+    Card(){
+
+
+    }
 
     Card(JsonNode node) {
         this.id = node.at("/id").asInt();
@@ -143,8 +147,8 @@ public class Card {
         this.attack = node.at("/attack").asInt();
         this.manaCost = node.at("/manaCost").asInt();
         this.durability = node.at("/durability").asInt();
-        if (fromURL)this.name = node.at("/name/en_US").asText();
-        else this.name = node.at("/name").asText();
+        //if (fromURL)this.name = node.at("/name/en_US").asText();
+        this.name = node.at("/name").asText();
         if (fromURL)this.text = node.at("/text/en_US").asText();
         else this.text = node.at("/text").asText();
         if (fromURL)this.image = node.at("/image/en_US").asText();

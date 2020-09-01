@@ -18,8 +18,8 @@ public class Database {
 
     protected List<Card> cardDB = new LinkedList<>();
     protected List<ScoredCard> DBScored = new LinkedList<>();
-    protected File jdb = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\DataBase.json");
-    protected File jdbText = new File("C:\\Users\\genes\\Desktop\\HSjson files\\HSDB.txt");
+    protected File jdb = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\HSDB0.json");
+    protected File basicDB = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\BasicDB.json");
     private final OkHttpClient client = new OkHttpClient();
     private final JsonFactory factory = new JsonFactory();
     protected JsonNode jsonNode;
@@ -30,7 +30,7 @@ public class Database {
         if (!jdb.exists()){
             int page = 1;
             accessToken();
-            while (cardDB.size() != 3715) {
+            while (cardDB.size() != 3890) {
             URI uri = new URIBuilder()
                     .setScheme("https")
                     .setHost("us.api.blizzard.com")
@@ -51,33 +51,20 @@ public class Database {
             page++;
             }
             mapper.writeValue(jdb, cardDB);
-            Averages averages = new Averages();
-            for (Card card: cardDB) DBScored.add(new ScoredCard(card, new Ratios(card, averages)));
-            mapper.writeValue(jdb, DBScored);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(jdbText, DBScored);
+            for (Card card: cardDB) DBScored.add(new ScoredCard(card, new Ratios(card)));
+            mapper.writerWithDefaultPrettyPrinter().writeValue(jdb, DBScored);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(basicDB, cardDB);
 
         }
 
         else {
             ObjectMapper mapper = new ObjectMapper();
             jsonNode = mapper.readTree(jdb);
-            for (JsonNode node: jsonNode
-            ) {
-
-                this.DBScored.add(new ScoredCard(node));
-            }
-
+            for (JsonNode node: jsonNode) this.DBScored.add(new ScoredCard(node));
         }
     }
 
-
-
-
-
-
     private void accessToken() throws IOException {
-
-
         FormBody formBody = new FormBody.Builder()
                 .add("grant_type", "client_credentials")
                 .build();
@@ -97,8 +84,6 @@ public class Database {
         this.jsonNode = this.mapper.readTree(parser);
         System.out.println("Access Token: " + jsonNode.at("/access_token").asText());
         this.accessToken = jsonNode.at("/access_token").asText();
-
-
     }
 
     public List<ScoredCard> getDBScored() {
