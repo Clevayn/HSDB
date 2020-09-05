@@ -6,26 +6,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class TextFilter {
+public class WordListsBuilder {
     File map = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\CountedWordList.json");
     File mapKeys = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\keyList.json");
     File occurrence = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\occurrence.json");
     File alphabetical = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\alphabetical.json");
     File numerical = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\numerical.json");
     private final ObjectMapper mapper = new ObjectMapper();
-
-
     JsonNode valueMap = mapper.readTree(map);
 
-
-
-
-
-
-    TextFilter() throws IOException {
+    WordListsBuilder() throws IOException {
         LinkedHashMap<String, Long> all = new LinkedHashMap<>();
         LinkedHashMap<String, Long> one = new LinkedHashMap<>();
         LinkedHashMap<String, Long> two = new LinkedHashMap<>();
@@ -305,7 +297,7 @@ public class TextFilter {
 
 
 
-
+        new WordCounter();
 
 
         mapper.writerWithDefaultPrettyPrinter().writeValue(this.alphabetical, alphabetical);
@@ -314,10 +306,7 @@ public class TextFilter {
 
     }
 
-
-
-
-    public static class WordCounter extends TextFilter {
+    public static class WordCounter extends WordListsBuilder {
         private final File WordList = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\WordList.json");
         private final ObjectMapper mapper = new ObjectMapper();
 
@@ -344,12 +333,8 @@ public class TextFilter {
             List<String> out = new LinkedList<>();
             for (ScoredCard scoredCard : new Filter().getCardList()) {
                 if (!"".equals(scoredCard.getText())) {
-                    out.addAll(Arrays.asList(new StringCleaner(scoredCard.getText())
-                            .boldCleaner()
-                            .italicCleaner()
-                            .punCleaner()
+                    out.addAll(Arrays.asList(new Text.Cleaner(scoredCard.getText())
                             .numCleaner()
-                            .blankSpaceCleaner()
                             .getString()
                             .strip()
                             .split(" ")));
@@ -360,239 +345,6 @@ public class TextFilter {
         }
 
 
-        public static class StringCleaner {
-            private final ObjectMapper mapper = new ObjectMapper();
-            private String input;
-
-            StringCleaner(String input) {
-                this.input = input;
-            }
-
-            public StringCleaner properNamesCleaner() throws IOException {
-                for (JsonNode string: mapper.readTree(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\ProperNames.json"))
-                     ) {
-
-                    this.input = this.input.replaceAll("\\b[\\s]" + string.asText() + "\\b", "");
-                }
-                return this;
-            }
-
-            public StringCleaner italicCleaner(){
-                if (this.input.contains("<i>")) this.input = this.input.replaceAll("<i>|</i>", "");
-                return this;
-            }
-
-            public StringCleaner boldCleaner(){
-                if (this.input.contains("<b>")) this.input = this.input.replaceAll("<b>|</b>", "");
-                return this;
-            }
-
-            public StringCleaner classCleaner(){
-                Pattern pattern;
-
-                String [] classNames = {"[Dd]ruid", "[Hh]unter", "[Mm]age", "[Pp]aladin", "[Pp]riest", "[Rr]ogue",
-                        "[Ss]haman", "[Ww]arlock",
-                        "[Ww]arrior", "[Dd]emon [Hh]unter"};
-                for (String s: classNames
-                ) {
-                    this.input = this.input.replaceAll("\\b" + Pattern.compile(s) + "\\b", "");
-                }
-                return this;
-            }
-
-            public StringCleaner gameTerms(){
-                List<String> list = Arrays.asList("[Mm]inion[s|\\s]", "[Hh]ero [Pp]owers", "[Dd]ormant", "[Ss]pell[s|\\s]",
-                        "[Hh]ero[es|\\s]", "[Hh]ero", "[Mm]ana [Cc]rystal[s|\\s]", "Auto Attack", "[Ii]llidari", "Galakrond",
-                        "[Aa]rmor", "[Ff]rozen", "[Mm]ana", "[Cc]oin", "[Dd]urability", "[Ww]eapon", "[Ss]pell");
-                for (String s: list
-                ) {
-                    this.input = this.input.replaceAll("\\b" + Pattern.compile(s) + "\\b", "");
-                }
-                return this;
-            }
-
-            public StringCleaner pronouns(){
-                List<String> firstPersonSub = Arrays.asList("\\b[Ii]\\b", "\\b[Ww]e\\b");
-                List<String> firstPersonObj = Arrays.asList("\\b[Mm]e\\b", "\\b[Uu]s\\b");
-                List<String> secondPerson = Collections.singletonList("\\b[Yy]ou[\\sre]\\b");
-                List<String> thirdPersonSub = Arrays.asList("\\b[Hh]e\\b", "\\b[Ss]he\\b", "\\b[Ii]t[\\ss]\\b", "\\b[Tt]hey\\b");
-                List<String> thirdPersonObj = Arrays.asList("\\b[Hh]im\\b", "\\b[Hh]er\\b", "\\b[Ii]t[\\ss]\\b", "\\b[Tt]hem\\b");
-                List<List<String>> list = new LinkedList<>();
-                list.add(firstPersonSub);
-                list.add(firstPersonObj);
-                list.add(secondPerson);
-                list.add(thirdPersonSub);
-                list.add(thirdPersonObj);
-
-                list.forEach(l -> l.forEach(l1 -> this.input = this.input.replaceAll(l1, "")));
-
-                return this;
-            }
-
-            public StringCleaner articlesCleaner(){
-                List<String> indefArt = Arrays.asList("\\b[Aa]\\b", "\\b[Tt]he\\b", "\\b[Tt]his\\b", "\\b[Tt]o\\b", "\\b[Aa]t\\b",
-                        "");
-                indefArt.forEach(s -> this.input = this.input.replaceAll(s, ""));
-                return this;
-            }
-
-            public StringCleaner phraseCleaner(){
-                List<String> phrases = Arrays.asList("Illidari", "Charrrrrge", "Side Quest", "Reward", "'Azari the Devourer'",
-                        "Sealed Un'Goro Pack", "Jade Idols", "Dinosaur Forms", "Stars' Fury", "King Krush",
-                        "'deal damage'", "&nbsp", "nbsp");
-                for (String s: phrases
-                ) {
-                    this.input = this.input.replaceAll("mana crystals", "mana");
-                    this.input = this.input.replaceAll(s, "");
-                }
-                return this;
-            }
-
-            public StringCleaner tokenCleaner(){
-                String [] tokens = {"[Ss]quirrel[s|\\s]", "[Ss]pirit [Ww]olves", "[Tt]reant[s|\\s]", "[Ff]elwing[s|\\s]", "[Bb]ee[s|\\s]", "[Ll]oti's",
-                        "[Dd]ryad[s|\\s]", "[Rr]aptors[s|\\s]", "[Ss]apling[s|\\s]", "[Bb]ruiser[s|\\s]", "[Gg]aurdian[s|\\s]",
-                        "[Cc]at[s|\\s]", "[Bb]ear[s|\\s]", "[Rr]at[s|\\s]", "[Ll]ynx[s|\\s]", "[Ww]olves[s|\\s]", "[Hh]yena[s|\\s]",
-                        "[Ww]ebspinner[s|\\s]", "[Ll]ocust[s|\\s]", "[Gg]oblin [Bb]omb[s|\\s]","[Ss]carab[s|\\s]", "[Ss]aytr[s|\\s]",
-                        "[Ss]andwasp[s|\\s]", "[Mm]icrocopters[s|\\s]", "True Silver Champion", "[Mm]ithril [Gg]olem[s|\\s]",
-                        "[Bb]oom [Bb]ot[s|\\s]", "Jo-E Bot[s|\\s]", "[Ss]pider[s|\\s]", "[Ww]isp[s|\\s]", "[Pp]terrordaxe[s|\\s]",
-                        "[Pp]ogo [Hh]opper[s|\\s]", "[Rr]azorpetal[s|\\s]", "[Dd]irehorn", "[Bb]oar", "[Mm]uckling[s|\\s]", "[Pp]lates", "[Mm]echs"};
-                for (String s: tokens
-                ) {
-                    this.input = this.input.replaceAll(String.valueOf(Pattern.compile(s)), "");
-                }
-                return this;
-            }
-
-            public StringCleaner wordNumCleaner(){
-                List<String> wordNum = Arrays.asList("[Oo]ne", "[Tt]wo", "[Tt]hree", "[Ff]our", "[Ff]ive", "[Ss]ix", "[Ss]even",
-                        "[Ee]ight", "[Nn]ine", "[Tt]en");
-                for (String s: wordNum
-                ) {
-                    this.input = this.input.replaceAll("\\b"+Pattern.compile(s)+"\\b", "");
-                }
-                return this;
-            }
-
-            public StringCleaner minionTypeCleaner(){
-                String [] minionType = {"[Mm]urloc[s|\\s]", "[Dd]emon", "[Mm]ech", "[Ee]lemental", "[Bb]east",
-                        "[Tt]otem", "[Pp]irate", "[Dd]ragon[s|\\s]", "[Dd]ragon"};
-                for (String s: minionType
-                ) {
-                    this.input = this.input.replaceAll("\\b"+Pattern.compile(s)+"\\b", "");
-                }
-                return this;
-            }
-
-            public StringCleaner numCleaner(){
-
-                this.input = this.input.replaceAll("\\b\\d\\d\\d\\b", "   ");
-                this.input = this.input.replaceAll("\\b\\d\\d\\b", "   ");
-                this.input = this.input.replaceAll("\\b\\d\\b", "   ");
-                return this;
-            }
-
-            public StringCleaner numReplace(){
-                input = input.replaceAll("\\b\\d\\d\\b", "x");
-                input = input.replaceAll("\\b\\d\\b", "x");
-                /*String [] numbersArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8","9", "10", "11", "12", "13","14", "15", "20",
-                        "one", "two", "three", "four", "five", "seven"};
-                for (String y: numbersArr
-                ) {
-                    input = input.replaceAll("\\b\\d\\d\\b", "x");
-                    input = input.replaceAll("\\b\\d\\b", "x");
-                }*/
-                return this;
-            }
-
-            public StringCleaner punCleaner(){
-                this.input = this.input.replaceAll("'", "");
-                this.input = this.input.replaceAll("[\\x21-\\x2F\\x3A-\\x3F]" , "   ");
-                return this;
-            }
-
-            public StringCleaner keywordCleaner() {
-                LinkedList<String> keywords = new LinkedList<>();
-                keywords.add("Taunt");
-                keywords.add("Spell Power");
-                keywords.add("Spell Damage");
-                keywords.add("Divine Shield");
-                keywords.add("Charge");
-                keywords.add("Secret");
-                keywords.add("Stealth");
-                keywords.add("Battlecry");
-                keywords.add("Freeze");
-                keywords.add("Windfury");
-                keywords.add("Deathrattle");
-                keywords.add("Combo");
-                keywords.add("Overload");
-                keywords.add("Silence");
-                keywords.add("Counter");
-                keywords.add("Immune");
-                keywords.add("Inspire");
-                keywords.add("Discover");
-                keywords.add("Quest");
-                keywords.add("Poisonous");
-                keywords.add("Adapt");
-                keywords.add("Lifesteal");
-                keywords.add("Recruit");
-                keywords.add("Echo");
-                keywords.add("Rush");
-                keywords.add("Overkill");
-                keywords.add("Magnetic");
-                keywords.add("Lackey");
-                keywords.add("Twinspell");
-                keywords.add("Mega Windfury");
-                keywords.add("Reborn");
-                keywords.add("Invoke");
-                keywords.add("Outcast");
-                keywords.add("Passive Hero Power");
-                keywords.add("Rush");
-                keywords.add("Hero Power");
-                keywords.add("Start of Combat");
-                keywords.add("Lifesteal");
-                keywords.add("Immune");
-                keywords.add("Discover");
-                keywords.add("Lifesteal");
-                keywords.add("Dormant");
-                keywords.add("Sidequest");
-                keywords.add("Reward");
-                keywords.add("Choose One");
-                keywords.add("Hero Power");
-
-                for (String s: keywords
-                ) {
-                    input = input.replaceAll(s, "");
-                }
-                return this;
-
-            }
-
-            public StringCleaner blankSpaceCleaner(){
-                this.input = this.input.replaceAll( "nbsp", "");
-                this.input = this.input.replaceAll( "\\s+", " ");
-                return this;
-            }
-
-            public String getStringLower(){
-                return input.toLowerCase();
-            }
-
-            public static void properNameList() throws IOException {
-                List<ScoredCard> cards = new Filter().getCardList();
-                ObjectMapper mapper = new ObjectMapper();
-                File ProperNames = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\ProperNames.json");
-                LinkedList<String> properNames = new LinkedList<>();
-                for (ScoredCard card: cards
-                ) {
-                    properNames.add(card.getName());
-                }
-                properNames.add(String.valueOf(properNames.size()));
-                mapper.writerWithDefaultPrettyPrinter().writeValue(ProperNames, properNames);
-            }
-
-            public String getString() {
-                return input;
-            }
-        }
     }
+
 }
