@@ -2,12 +2,17 @@ package com;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException {
         AtomicReference<String> s = new AtomicReference<>("");
         AtomicReference<Integer> n = new AtomicReference<>(0);
+
+
+        new Text.Searcher().actionBuilder();
         /*new Filter()
                 .collectible()
                 .minions()
@@ -16,24 +21,12 @@ public class Main {
                     try {
                         s.set(new Text.Cleaner(scoredCard.getText().toLowerCase())
                                 .blankSpaceCleaner()
-                                .boldCleaner()
                                 .italicCleaner()
-                                .properNamesCleaner()
-                                .specialPhraseCleaner()
-                                .gameTermCleaner()
-                                .minionTypeCleaner()
-                                .punCleaner()
-                                .wordNumCleaner()
-                                .numCleaner()
-                                .tokenCleaner()
-                                .classCleaner()
-                                .actionCleaner()
-                                .effectCleaner()
-                                .conditionCleaner()
-                                .specifierCleaner()
-                                .targetCleaner()
-                                .statesCleaner()
-                                .randomCleaner()
+                                .targeterReplace()
+                                .statesReplace()
+                                .conditionReplace()
+                                .effectReplace()
+                                .joinerReplace()
                                 .blankSpaceCleaner()
                                 .getStringLower().trim());
                     } catch (IOException e) {
@@ -41,14 +34,17 @@ public class Main {
                     }
 
                     if (!s.get().equals("")) {
-                        System.out.println(n.get() + "   :    " + s.get());
+                        System.out.println(s.get());
                         System.out.println(scoredCard.getText() +"\n");
                         n.getAndSet(n.get() + 1 );
                     }
 
                 });*/
 
-        System.out.println(new Text.Searcher().getTwoWord().size());
+
+
+
+
 
     }
 
