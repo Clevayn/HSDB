@@ -14,7 +14,7 @@ public class Filter {
     private List<ScoredCard> cardList = new LinkedList<>();
 
     Filter() throws IOException {
-        for (JsonNode node: new ObjectMapper().readTree(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\DataBase.json"))
+        for (JsonNode node: new ObjectMapper().readTree(new File("C:\\Projects\\JavaKotlinSandbox\\src\\main\\resources\\DataBase.json"))
         ) {
             cardList.add(new ScoredCard(node));
         }

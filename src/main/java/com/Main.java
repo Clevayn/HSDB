@@ -8,6 +8,10 @@ public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException {
         AtomicReference<String> s = new AtomicReference<>("");
         AtomicReference<Integer> n = new AtomicReference<>(0);
+
+
+
+
         /*new Filter()
                 .collectible()
                 .minions()
@@ -15,6 +19,8 @@ public class Main {
                 .forEach(scoredCard -> {
                     try {
                         s.set(new Text.Cleaner(scoredCard.getText().toLowerCase())
+                                .actionPhraseReplace()
+                                .statsCleaner()
                                 .blankSpaceCleaner()
                                 .boldCleaner()
                                 .italicCleaner()
@@ -24,15 +30,15 @@ public class Main {
                                 .minionTypeCleaner()
                                 .punCleaner()
                                 .wordNumCleaner()
-                                .numCleaner()
+                                .numReplace()
                                 .tokenCleaner()
                                 .classCleaner()
-                                .actionCleaner()
-                                .effectCleaner()
-                                .conditionCleaner()
-                                .specifierCleaner()
-                                .targetCleaner()
-                                .statesCleaner()
+                                .actionReplace()
+                                .effectReplace()
+                                .conditionReplace()
+                                .specifierReplace()
+                                .targetReplace()
+                                .statesReplace()
                                 .randomCleaner()
                                 .blankSpaceCleaner()
                                 .getStringLower().trim());
@@ -48,7 +54,7 @@ public class Main {
 
                 });*/
 
-        System.out.println(new Text.Searcher().getTwoWord().size());
+
 
     }
 
