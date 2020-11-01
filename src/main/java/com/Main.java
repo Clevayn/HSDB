@@ -12,7 +12,7 @@ public class Main {
         AtomicReference<Integer> n = new AtomicReference<>(0);
 
 
-        new Text.Searcher().actionBuilder();
+        new Text.Searcher().phraseFinder();
         /*new Filter()
                 .collectible()
                 .minions()

@@ -667,6 +667,26 @@ public class Text {
 
         }
 
+        void phraseFinder(){
+            List<String> out = new LinkedList<>();
+            for (ScoredCard card: list
+                 ) {
+                String text = card.getText().replaceAll("&nbsp;", " ");
+                Pattern pattern = Pattern.compile("([^.,]+)");
+                Matcher matcher = pattern.matcher(text);
+
+                while(text.length() > 4){
+                    if (matcher.find() && !out.contains(matcher.group())){
+                        out.add(matcher.group());
+                        System.out.println(matcher.group());
+                        text = text.replaceAll(matcher.group(), "");
+                    }
+                }
+
+            }
+
+        }
+
 
         public void listBuilder(String name, List<String> wordList) throws IOException {
             for (ScoredCard card : list
@@ -896,7 +916,7 @@ public class Text {
 
         }
 
-        public void twoListCombos(String name, List<String> wordList1, List<String> wordList2) throws IOException {
+       /* public void twoListCombos(String name, List<String> wordList1, List<String> wordList2) throws IOException {
             for (ScoredCard card: list
             ) {
                 String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
@@ -1105,28 +1125,37 @@ public class Text {
 
 
 
-        }
+        }*/
 
-        public void wordPlusTarget() throws IOException {
+       public void comboMaker(){
+
+           combiner(specifier, specifier);
+
+       }
+
+        public List<String> combiner(List<String> list1, List<String> list2) {
+            List<String> out = new LinkedList<>();
             for (ScoredCard card: list
-            ) {
-                String text = card.getText().toLowerCase().replaceAll("[.,;!]", " ");
-                text = text.replaceAll("nbsp", "");
-                text = text.replaceAll("\\d\\d|\\d", "x");
-
-                for(String com: targetCombos){
-                   for (String s: target
-                   ) {
-                       Pattern pattern = Pattern.compile("(\\b" + com + "\\b) " + "(\\b" + s + "\\b)");
-                       Matcher matcher = pattern.matcher(text);
-                       if (matcher.find() && !wordPlusTarget.contains(matcher.group(1) + " " + matcher.group(2))) {
-                           wordPlusTarget.add(matcher.group(1) + " " + matcher.group(2));
-                       }
-                   }
-               }
+                 ) {
+                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                text = text.replaceAll("[.,;!]", " ");
+                text = text.replaceAll("\\s{2,}", " ");
+                for (String s : list1
+                ) {
+                    for (String s1 : list2
+                    ) {
+                        Pattern pattern = Pattern.compile("\\b" + s + " " + s1 + "\\b");
+                        Matcher matcher = pattern.matcher(text);
+                        if (matcher.find() && !out.contains(matcher.group())) {
+                            out.add(matcher.group());
+                            System.out.println(matcher.group());
+                        }
+                    }
+                }
             }
-            new WriteJsonFile("wordPlusTarget").writeStringList(wordPlusTarget);
+            return out;
         }
+
 
         public void contentCounter() throws IOException {
             int characterAction = 0;
