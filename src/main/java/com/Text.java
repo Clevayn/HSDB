@@ -256,20 +256,25 @@ public class Text {
             targetComboList2.add(node.textValue());
         }
 
+
         for (JsonNode node: mapper.readTree(new File("C:\\HSDeckBuilder\\src\\main\\resources\\targetCombos 4 Word.json"))
         ) {
             targetComboList3.add(node.textValue());
         }
+
 
         for (JsonNode node: mapper.readTree(new File("C:\\HSDeckBuilder\\src\\main\\resources\\targetCombos 5 Word.json"))
         ) {
             targetComboList4.add(node.textValue());
         }
 
+
         for (JsonNode node: mapper.readTree(new File("C:\\HSDeckBuilder\\src\\main\\resources\\targetCombos 6 Word.json"))
         ) {
             targetComboList5.add(node.textValue());
         }
+
+
 
         for (JsonNode node: mapper.readTree(new File("C:\\HSDeckBuilder\\src\\main\\resources\\wordPlusTarget.json"))
              ) {
@@ -357,7 +362,7 @@ public class Text {
 
         Cleaner(String input) throws IOException {
             super();
-            this.input = input.toLowerCase();
+            this.input = input;
         }
 
         public Cleaner wordPlusTargetCleaner(){
@@ -476,9 +481,9 @@ public class Text {
         public Cleaner properNamesCleaner() throws IOException {
             for (JsonNode string: mapper.readTree(new File("C:\\HSDeckBuilder\\src\\main\\resources\\ProperNames.json"))
             ) {
-                if (string.asText().toLowerCase().equals("polymorph: ???")) this.input = this.input.replace("polymorph: ???", " ");
+                if (string.asText().equals("Polymorph: ???")) this.input = this.input.replace("Polymorph: ???", " ");
                 else{
-                    this.input = this.input.replaceAll("\\b" + string.asText().toLowerCase() + "\\b", " ");
+                    this.input = this.input.replaceAll("\\b" + string.asText() + "\\b", " ");
                 }
             }
             return this;
@@ -523,7 +528,7 @@ public class Text {
         public Cleaner properNamesReplace() throws IOException {
             for (JsonNode string: mapper.readTree(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\ProperNames.json"))
             ) {
-                this.input = this.input.replaceAll("\\b" + string.asText().toLowerCase() + "\\b", "cardName");
+                this.input = this.input.replaceAll("\\b" + string.asText() + "\\b", "cardName");
             }
             return this;
         }
@@ -622,7 +627,7 @@ public class Text {
             List<String> out = new LinkedList<>();
             for (ScoredCard card: list
                  ) {
-                String text = card.getText().toLowerCase().replaceAll("([.,:!]|&nbsp;)", "   ");
+                String text = card.getText().replaceAll("([.,:!]|&nbsp;)", "   ");
                 text = text.replaceAll("\\s{2,}", " ");
                 for (String s: characterAction
                      ) {
@@ -644,7 +649,7 @@ public class Text {
             List<String> out = new LinkedList<>();
             for (ScoredCard card: list
                  ) {
-                String text =  card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text =  card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", "   ");
                 text = text.replaceAll("\\d\\d|\\d", "x");
                 for (String s: resourceAction
@@ -662,11 +667,31 @@ public class Text {
 
         }
 
+        void phraseFinder(){
+            List<String> out = new LinkedList<>();
+            for (ScoredCard card: list
+                 ) {
+                String text = card.getText().replaceAll("&nbsp;", " ");
+                Pattern pattern = Pattern.compile("([^.,]+)");
+                Matcher matcher = pattern.matcher(text);
+
+                while(text.length() > 4){
+                    if (matcher.find() && !out.contains(matcher.group())){
+                        out.add(matcher.group());
+                        System.out.println(matcher.group());
+                        text = text.replaceAll(matcher.group(), "");
+                    }
+                }
+
+            }
+
+        }
+
 
         public void listBuilder(String name, List<String> wordList) throws IOException {
             for (ScoredCard card : list
             ) {
-                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
                 text = text.replaceAll("\\s{2,}", " ");
                     for (String s: wordList
@@ -686,7 +711,7 @@ public class Text {
         public void singleListCombos(String name, List<String> wordList) throws IOException {
             for (ScoredCard card: list
                  ) {
-                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
                 text = text.replaceAll("\\s{2,}", " ");
                 for (String s: wordList
@@ -891,10 +916,10 @@ public class Text {
 
         }
 
-        public void twoListCombos(String name, List<String> wordList1, List<String> wordList2) throws IOException {
+       /* public void twoListCombos(String name, List<String> wordList1, List<String> wordList2) throws IOException {
             for (ScoredCard card: list
             ) {
-                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
                 text = text.replaceAll("\\s{2,}", " ");
 
@@ -1100,28 +1125,37 @@ public class Text {
 
 
 
-        }
+        }*/
 
-        public void wordPlusTarget() throws IOException {
+       public void comboMaker(){
+
+           combiner(specifier, specifier);
+
+       }
+
+        public List<String> combiner(List<String> list1, List<String> list2) {
+            List<String> out = new LinkedList<>();
             for (ScoredCard card: list
-            ) {
-                String text = card.getText().toLowerCase().replaceAll("[.,;!]", " ");
-                text = text.replaceAll("nbsp", "");
-                text = text.replaceAll("\\d\\d|\\d", "x");
-
-                for(String com: targetCombos){
-                   for (String s: target
-                   ) {
-                       Pattern pattern = Pattern.compile("(\\b" + com + "\\b) " + "(\\b" + s + "\\b)");
-                       Matcher matcher = pattern.matcher(text);
-                       if (matcher.find() && !wordPlusTarget.contains(matcher.group(1) + " " + matcher.group(2))) {
-                           wordPlusTarget.add(matcher.group(1) + " " + matcher.group(2));
-                       }
-                   }
-               }
+                 ) {
+                String text = card.getText().replaceAll("&nbsp;", " ");
+                text = text.replaceAll("[.,;!]", " ");
+                text = text.replaceAll("\\s{2,}", " ");
+                for (String s : list1
+                ) {
+                    for (String s1 : list2
+                    ) {
+                        Pattern pattern = Pattern.compile("\\b" + s + " " + s1 + "\\b");
+                        Matcher matcher = pattern.matcher(text);
+                        if (matcher.find() && !out.contains(matcher.group())) {
+                            out.add(matcher.group());
+                            System.out.println(matcher.group());
+                        }
+                    }
+                }
             }
-            new WriteJsonFile("wordPlusTarget").writeStringList(wordPlusTarget);
+            return out;
         }
+
 
         public void contentCounter() throws IOException {
             int characterAction = 0;
@@ -1134,7 +1168,7 @@ public class Text {
             int textLen;
             for (ScoredCard card: list
                  ) {
-                String text = new Cleaner(card.getText().toLowerCase())
+                String text = new Cleaner(card.getText())
                         .boldCleaner()
                         .italicCleaner()
                         .blankSpaceCleaner()

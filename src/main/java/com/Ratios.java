@@ -123,19 +123,21 @@ class Ratios extends Averages{
         scores[0][1] = ((card.getHealth() / wildAtk) * (card.getHealth() / wildAtkCost));
         scores[1][1] = ((card.getHealth() / standardAtk) * (card.getHealth() / standardAtkCost));
 
-        minionScoreWild = (((card.getAttack() / wildHealth) * (card.getAttack() / wildHealthCost))
-                +         ((card.getHealth() / wildAtk) * (card.getHealth() / wildAtkCost))) / 2;
+        minionScoreWild = (((card.getAttack() / wildHealth) *
+                (card.getAttack() / wildHealthCost)) +
+                ((card.getHealth() / wildAtk) * (card.getHealth() / wildAtkCost))) / 2;
 
-        minionScoreStandard = Math.log10(((card.getAttack() / standardHealth) * (card.getAttack() / standardHealthCost)) +
-                +                       ((card.getHealth() / standardAtk) * (card.getHealth() / standardAtkCost)));
+        minionScoreStandard = Math.log10(((card.getAttack() / standardHealth) *
+                (card.getAttack() / standardHealthCost)) +
+                ((card.getHealth() / standardAtk) * (card.getHealth() / standardAtkCost)));
 
         System.out.println(card.getName());
         System.out.println("Mana Cost:             " + card.getManaCost());
         System.out.println("Attack - Health:       " + card.getAttack() + " / " + card.getHealth());
         System.out.println("Standard:              " + standardAtk + " / " + standardHealth);
         System.out.println("Cost:                  " + standardAtkCost + " / " + standardHealthCost);
-        System.out.println("atkScore:              " + (card.getAttack() / standardHealth) * (card.getAttack()/ standardHealthCost));
-        System.out.println("healthScore:           " + (card.getHealth()/ standardAtk) * (card.getHealth() / standardAtkCost));
+        System.out.println("atkScore:              " + (card.getAttack() / standardHealth) * (card.getAttack() / standardHealthCost));
+        System.out.println("healthScore:           " + (card.getHealth() / standardAtk) * (card.getHealth() / standardAtkCost));
         System.out.println("Minion Score Standard: " + minionScoreStandard);
         System.out.println();
         System.out.println();

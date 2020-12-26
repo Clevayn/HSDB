@@ -237,7 +237,7 @@ public class Averages {
         averages.put("Wild", wild);
         averages.put("Standard", standard);
 
-        new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\Averages.json"), averages);
+        new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(new File("C:\\HSDeckBuilder\\src\\main\\resources\\Averages.json"), averages);
     }
 }
 

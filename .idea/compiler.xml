@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JavaKotlinSandbox" />
+        <module name="HSDB" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="JavaKotlinSandbox" target="1.11" />
+      <module name="HSDB" target="1.11" />
     </bytecodeTargetLevel>
   </component>
 </project>

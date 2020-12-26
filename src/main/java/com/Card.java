@@ -116,7 +116,7 @@ public class Card {
         this.parentId = node.at("/parentId").asInt();
         this.childIds = arrayGetter(node.at("/childIds"));
         this.keywordIds = arrayGetter(node.at("/keywordIds"));
-        this.standard = node.at("/standard").asBoolean();
+        /*this.standard = node.at("/standard").asBoolean();
         this.damageRatioWild = node.at("/damageRatioWild").asDouble();
         this.damageRatioWildCost = node.at("/damageRatioWildCost").asDouble();
         this.damageScoreWild = node.at("/damageScoreWild").asDouble();
@@ -128,11 +128,11 @@ public class Card {
         this.damageScoreStandard = node.at("/damageScoreStandard").asDouble();
         this.survivalRatioStandard = node.at("/survivalRatioStandard").asDouble();
         this.survivalRatioStandardCost = node.at("/survivalRatioStandardCost").asDouble();
-        this.survivalScoreStandard = node.at("/survivalScoreStandard").asDouble();
+        this.survivalScoreStandard = node.at("/survivalScoreStandard").asDouble();*/
     }
 
 
-    Card(JsonNode node, boolean fromURL){
+   /* Card(JsonNode node, boolean fromURL){
         this.id = node.at("/id").asInt();
         this.collectible = node.at("/collectible").asInt();
         this.slug = node.at("/slug").asText();
@@ -176,7 +176,7 @@ public class Card {
 
 
 
-    }
+    }*/
 
     public void setStandard(boolean standard) {
         this.standard = standard;
