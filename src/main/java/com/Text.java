@@ -362,7 +362,7 @@ public class Text {
 
         Cleaner(String input) throws IOException {
             super();
-            this.input = input.toLowerCase();
+            this.input = input;
         }
 
         public Cleaner wordPlusTargetCleaner(){
@@ -481,9 +481,9 @@ public class Text {
         public Cleaner properNamesCleaner() throws IOException {
             for (JsonNode string: mapper.readTree(new File("C:\\HSDeckBuilder\\src\\main\\resources\\ProperNames.json"))
             ) {
-                if (string.asText().toLowerCase().equals("polymorph: ???")) this.input = this.input.replace("polymorph: ???", " ");
+                if (string.asText().equals("Polymorph: ???")) this.input = this.input.replace("Polymorph: ???", " ");
                 else{
-                    this.input = this.input.replaceAll("\\b" + string.asText().toLowerCase() + "\\b", " ");
+                    this.input = this.input.replaceAll("\\b" + string.asText() + "\\b", " ");
                 }
             }
             return this;
@@ -528,7 +528,7 @@ public class Text {
         public Cleaner properNamesReplace() throws IOException {
             for (JsonNode string: mapper.readTree(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\ProperNames.json"))
             ) {
-                this.input = this.input.replaceAll("\\b" + string.asText().toLowerCase() + "\\b", "cardName");
+                this.input = this.input.replaceAll("\\b" + string.asText() + "\\b", "cardName");
             }
             return this;
         }
@@ -627,7 +627,7 @@ public class Text {
             List<String> out = new LinkedList<>();
             for (ScoredCard card: list
                  ) {
-                String text = card.getText().toLowerCase().replaceAll("([.,:!]|&nbsp;)", "   ");
+                String text = card.getText().replaceAll("([.,:!]|&nbsp;)", "   ");
                 text = text.replaceAll("\\s{2,}", " ");
                 for (String s: characterAction
                      ) {
@@ -649,7 +649,7 @@ public class Text {
             List<String> out = new LinkedList<>();
             for (ScoredCard card: list
                  ) {
-                String text =  card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text =  card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", "   ");
                 text = text.replaceAll("\\d\\d|\\d", "x");
                 for (String s: resourceAction
@@ -691,7 +691,7 @@ public class Text {
         public void listBuilder(String name, List<String> wordList) throws IOException {
             for (ScoredCard card : list
             ) {
-                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
                 text = text.replaceAll("\\s{2,}", " ");
                     for (String s: wordList
@@ -711,7 +711,7 @@ public class Text {
         public void singleListCombos(String name, List<String> wordList) throws IOException {
             for (ScoredCard card: list
                  ) {
-                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
                 text = text.replaceAll("\\s{2,}", " ");
                 for (String s: wordList
@@ -919,7 +919,7 @@ public class Text {
        /* public void twoListCombos(String name, List<String> wordList1, List<String> wordList2) throws IOException {
             for (ScoredCard card: list
             ) {
-                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
                 text = text.replaceAll("\\s{2,}", " ");
 
@@ -1137,7 +1137,7 @@ public class Text {
             List<String> out = new LinkedList<>();
             for (ScoredCard card: list
                  ) {
-                String text = card.getText().toLowerCase().replaceAll("&nbsp;", " ");
+                String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
                 text = text.replaceAll("\\s{2,}", " ");
                 for (String s : list1
@@ -1168,7 +1168,7 @@ public class Text {
             int textLen;
             for (ScoredCard card: list
                  ) {
-                String text = new Cleaner(card.getText().toLowerCase())
+                String text = new Cleaner(card.getText())
                         .boldCleaner()
                         .italicCleaner()
                         .blankSpaceCleaner()
