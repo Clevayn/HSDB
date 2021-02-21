@@ -595,11 +595,11 @@ public class Text {
         }
 
         public void properNameList() throws IOException {
-            List<ScoredCard> cards = new Filter().getCardList();
+            List<Card> cards = new Filter("wild").getCardList();
             ObjectMapper mapper = new ObjectMapper();
             File ProperNames = new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\ProperNames.json");
             LinkedList<String> properNames = new LinkedList<>();
-            for (ScoredCard card: cards
+            for (Card card: cards
             ) {
                 properNames.add(card.getName());
             }
@@ -619,13 +619,13 @@ public class Text {
 
     public static class Searcher extends Text{
         List<String> wordPlusTarget = new LinkedList<>();
-        List<ScoredCard> list = new Filter().collectible().getCardList();
+        List<Card> list = new Filter("wild").collectible().getCardList();
 
         Searcher() throws IOException {}
 
         public List<String> characterAction(){
             List<String> out = new LinkedList<>();
-            for (ScoredCard card: list
+            for (Card card: list
                  ) {
                 String text = card.getText().replaceAll("([.,:!]|&nbsp;)", "   ");
                 text = text.replaceAll("\\s{2,}", " ");
@@ -647,7 +647,7 @@ public class Text {
 
         public void actionBuilder(){
             List<String> out = new LinkedList<>();
-            for (ScoredCard card: list
+            for (Card card: list
                  ) {
                 String text =  card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", "   ");
@@ -669,7 +669,7 @@ public class Text {
 
         void phraseFinder(){
             List<String> out = new LinkedList<>();
-            for (ScoredCard card: list
+            for (Card card: list
                  ) {
                 String text = card.getText().replaceAll("&nbsp;", " ");
                 Pattern pattern = Pattern.compile("([^.,]+)");
@@ -689,7 +689,7 @@ public class Text {
 
 
         public void listBuilder(String name, List<String> wordList) throws IOException {
-            for (ScoredCard card : list
+            for (Card card : list
             ) {
                 String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
@@ -709,7 +709,7 @@ public class Text {
         }
 
         public void singleListCombos(String name, List<String> wordList) throws IOException {
-            for (ScoredCard card: list
+            for (Card card: list
                  ) {
                 String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
@@ -1135,7 +1135,7 @@ public class Text {
 
         public List<String> combiner(List<String> list1, List<String> list2) {
             List<String> out = new LinkedList<>();
-            for (ScoredCard card: list
+            for (Card card: list
                  ) {
                 String text = card.getText().replaceAll("&nbsp;", " ");
                 text = text.replaceAll("[.,;!]", " ");
@@ -1166,7 +1166,7 @@ public class Text {
             int effectCount = 0;
             int conditionCount = 0;
             int textLen;
-            for (ScoredCard card: list
+            for (Card card: list
                  ) {
                 String text = new Cleaner(card.getText())
                         .boldCleaner()

@@ -11,12 +11,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Filter {
-    private List<ScoredCard> cardList = new LinkedList<>();
+    private List<Card> cardList = new LinkedList<>();
+    File read;
+    File standard = new File("C:\\HSDeckBuilder\\src\\main\\resources\\StandardCardList.json");
+    File wild = new File("C:\\HSDeckBuilder\\src\\main\\resources\\wildCardList.json");
 
     Filter() throws IOException {
-        for (JsonNode node: new ObjectMapper().readTree(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\DataBase.json"))
+        for (JsonNode node: new ObjectMapper().readTree(wild)
         ) {
-            cardList.add(new ScoredCard(node));
+
+            cardList.add(new Card(node));
+        }
+
+    }
+
+    Filter(String gameMode) throws IOException {
+        if (gameMode.equals("standard")) read = standard;
+        if (gameMode.equals("wild")) read = wild;
+        for (JsonNode node: new ObjectMapper().readTree(read)
+        ) {
+            cardList.add(new Card(node));
         }
 
     }
@@ -547,7 +561,7 @@ public class Filter {
         return this;
     }
 
-    public List<ScoredCard> getCardList() {
+    public List<Card> getCardList() {
         return cardList;
     }
 }

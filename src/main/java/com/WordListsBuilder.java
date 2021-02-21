@@ -331,9 +331,9 @@ public class WordListsBuilder {
 
         List<String> listBuilder() throws IOException {
             List<String> out = new LinkedList<>();
-            for (ScoredCard scoredCard : new Filter().getCardList()) {
-                if (!"".equals(scoredCard.getText())) {
-                    out.addAll(Arrays.asList(new Text.Cleaner(scoredCard.getText())
+            for (Card card : new Filter().getCardList()) {
+                if (!"".equals(card.getText())) {
+                    out.addAll(Arrays.asList(new Text.Cleaner(card.getText())
                             .numCleaner()
                             .getString()
                             .strip()

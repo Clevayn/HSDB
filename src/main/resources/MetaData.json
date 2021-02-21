@@ -1,0 +1,741 @@
+{
+  "sets" : [ {
+    "id" : 1466,
+    "slug" : "madness-at-the-darkmoon-faire",
+    "releaseDate" : "2020-11-17",
+    "type" : "expansion",
+    "name" : "Madness at the Darkmoon Faire",
+    "collectibleCount" : 170,
+    "collectibleRevealedCount" : 170,
+    "nonCollectibleCount" : 267,
+    "nonCollectibleRevealedCount" : 132
+  }, {
+    "id" : 1443,
+    "slug" : "scholomance-academy",
+    "releaseDate" : "2020-08-06",
+    "type" : "expansion",
+    "name" : "Scholomance Academy",
+    "collectibleCount" : 135,
+    "collectibleRevealedCount" : 135,
+    "nonCollectibleCount" : 176,
+    "nonCollectibleRevealedCount" : 25
+  }, {
+    "id" : 1463,
+    "slug" : "demonhunter-initiate",
+    "releaseDate" : "2020-04-08",
+    "type" : "base",
+    "name" : "Demon Hunter Initiate",
+    "collectibleCount" : 20,
+    "collectibleRevealedCount" : 20,
+    "nonCollectibleCount" : 3,
+    "nonCollectibleRevealedCount" : 3
+  }, {
+    "id" : 1414,
+    "slug" : "ashes-of-outland",
+    "releaseDate" : "2020-04-07",
+    "type" : "expansion",
+    "name" : "Ashes of Outland",
+    "collectibleCount" : 135,
+    "collectibleRevealedCount" : 135,
+    "nonCollectibleCount" : 63,
+    "nonCollectibleRevealedCount" : 56
+  }, {
+    "id" : 1403,
+    "slug" : "galakronds-awakening",
+    "releaseDate" : "2020-01-15",
+    "type" : "adventure",
+    "name" : "Galakrond’s Awakening",
+    "collectibleCount" : 35,
+    "collectibleRevealedCount" : 35,
+    "nonCollectibleCount" : 10,
+    "nonCollectibleRevealedCount" : 5
+  }, {
+    "id" : 1347,
+    "slug" : "descent-of-dragons",
+    "releaseDate" : "2019-12-10",
+    "type" : "expansion",
+    "name" : "Descent of Dragons",
+    "collectibleCount" : 140,
+    "collectibleRevealedCount" : 140,
+    "nonCollectibleCount" : 59,
+    "nonCollectibleRevealedCount" : 55
+  }, {
+    "id" : 1158,
+    "slug" : "saviors-of-uldum",
+    "releaseDate" : "2019-08-06",
+    "type" : "expansion",
+    "name" : "Saviors of Uldum",
+    "collectibleCount" : 135,
+    "collectibleRevealedCount" : 135,
+    "nonCollectibleCount" : 50,
+    "nonCollectibleRevealedCount" : 47
+  }, {
+    "id" : 1130,
+    "slug" : "rise-of-shadows",
+    "releaseDate" : "2019-04-09",
+    "type" : "expansion",
+    "name" : "Rise of Shadows",
+    "collectibleCount" : 136,
+    "collectibleRevealedCount" : 136,
+    "nonCollectibleCount" : 54,
+    "nonCollectibleRevealedCount" : 51
+  }, {
+    "id" : 1129,
+    "slug" : "rastakhans-rumble",
+    "releaseDate" : "2018-12-04",
+    "type" : "expansion",
+    "name" : "Rastakhan’s Rumble",
+    "collectibleCount" : 135,
+    "collectibleRevealedCount" : 135,
+    "nonCollectibleCount" : 30,
+    "nonCollectibleRevealedCount" : 29
+  }, {
+    "id" : 1127,
+    "slug" : "the-boomsday-project",
+    "releaseDate" : "2018-07-10",
+    "type" : "expansion",
+    "name" : "The Boomsday Project",
+    "collectibleCount" : 136,
+    "collectibleRevealedCount" : 136,
+    "nonCollectibleCount" : 20,
+    "nonCollectibleRevealedCount" : 20
+  }, {
+    "id" : 1125,
+    "slug" : "the-witchwood",
+    "releaseDate" : "2018-04-01",
+    "type" : "expansion",
+    "name" : "The Witchwood",
+    "collectibleCount" : 129,
+    "collectibleRevealedCount" : 129,
+    "nonCollectibleCount" : 35,
+    "nonCollectibleRevealedCount" : 35
+  }, {
+    "id" : 1004,
+    "slug" : "kobolds-and-catacombs",
+    "releaseDate" : "2017-12-01",
+    "type" : "expansion",
+    "name" : "Kobolds and Catacombs",
+    "collectibleCount" : 135,
+    "collectibleRevealedCount" : 135,
+    "nonCollectibleCount" : 95,
+    "nonCollectibleRevealedCount" : 94
+  }, {
+    "id" : 1001,
+    "slug" : "knights-of-the-frozen-throne",
+    "releaseDate" : "2017-08-01",
+    "type" : "expansion",
+    "name" : "Knights of the Frozen Throne",
+    "collectibleCount" : 135,
+    "collectibleRevealedCount" : 135,
+    "nonCollectibleCount" : 110,
+    "nonCollectibleRevealedCount" : 49
+  }, {
+    "id" : 27,
+    "slug" : "journey-to-ungoro",
+    "releaseDate" : "2017-04-01",
+    "type" : "expansion",
+    "name" : "Journey to Un’Goro",
+    "collectibleCount" : 135,
+    "collectibleRevealedCount" : 135,
+    "nonCollectibleCount" : 52,
+    "nonCollectibleRevealedCount" : 52
+  }, {
+    "id" : 25,
+    "slug" : "mean-streets-of-gadgetzan",
+    "releaseDate" : "2016-12-01",
+    "type" : "expansion",
+    "name" : "Mean Streets of Gadgetzan",
+    "collectibleCount" : 132,
+    "collectibleRevealedCount" : 132,
+    "nonCollectibleCount" : 82,
+    "nonCollectibleRevealedCount" : 82
+  }, {
+    "id" : 23,
+    "slug" : "one-night-in-karazhan",
+    "releaseDate" : "2016-08-01",
+    "type" : "adventure",
+    "name" : "One Night in Karazhan",
+    "collectibleCount" : 45,
+    "collectibleRevealedCount" : 45,
+    "nonCollectibleCount" : 53,
+    "nonCollectibleRevealedCount" : 53
+  }, {
+    "id" : 21,
+    "slug" : "whispers-of-the-old-gods",
+    "releaseDate" : "2016-04-01",
+    "type" : "expansion",
+    "name" : "Whispers of the Old Gods",
+    "collectibleCount" : 134,
+    "collectibleRevealedCount" : 134,
+    "nonCollectibleCount" : 30,
+    "nonCollectibleRevealedCount" : 30
+  }, {
+    "id" : 20,
+    "slug" : "league-of-explorers",
+    "releaseDate" : "2015-11-01",
+    "type" : "adventure",
+    "name" : "League of Explorers",
+    "collectibleCount" : 45,
+    "collectibleRevealedCount" : 45,
+    "nonCollectibleCount" : 184,
+    "nonCollectibleRevealedCount" : 16
+  }, {
+    "id" : 15,
+    "slug" : "the-grand-tournament",
+    "releaseDate" : "2015-08-01",
+    "type" : "expansion",
+    "name" : "The Grand Tournament",
+    "collectibleCount" : 132,
+    "collectibleRevealedCount" : 132,
+    "nonCollectibleCount" : 19,
+    "nonCollectibleRevealedCount" : 18
+  }, {
+    "id" : 14,
+    "slug" : "blackrock-mountain",
+    "releaseDate" : "2015-04-01",
+    "type" : "adventure",
+    "name" : "Blackrock Mountain",
+    "collectibleCount" : 31,
+    "collectibleRevealedCount" : 31,
+    "nonCollectibleCount" : 170,
+    "nonCollectibleRevealedCount" : 12
+  }, {
+    "id" : 13,
+    "slug" : "goblins-vs-gnomes",
+    "releaseDate" : "2014-12-01",
+    "type" : "expansion",
+    "name" : "Goblins vs Gnomes",
+    "collectibleCount" : 123,
+    "collectibleRevealedCount" : 123,
+    "nonCollectibleCount" : 20,
+    "nonCollectibleRevealedCount" : 20
+  }, {
+    "id" : 12,
+    "slug" : "naxxramas",
+    "releaseDate" : "2014-06-01",
+    "type" : "adventure",
+    "name" : "Curse of Naxxramas",
+    "collectibleCount" : 30,
+    "collectibleRevealedCount" : 30,
+    "nonCollectibleCount" : 114,
+    "nonCollectibleRevealedCount" : 114
+  }, {
+    "id" : 4,
+    "slug" : "hall-of-fame",
+    "releaseDate" : null,
+    "type" : "",
+    "name" : "Hall of Fame",
+    "collectibleCount" : 35,
+    "collectibleRevealedCount" : 35,
+    "nonCollectibleCount" : 9,
+    "nonCollectibleRevealedCount" : 9
+  }, {
+    "id" : 3,
+    "slug" : "classic",
+    "releaseDate" : null,
+    "type" : "",
+    "name" : "Classic",
+    "collectibleCount" : 240,
+    "collectibleRevealedCount" : 240,
+    "nonCollectibleCount" : 63,
+    "nonCollectibleRevealedCount" : 63
+  }, {
+    "id" : 2,
+    "slug" : "basic",
+    "releaseDate" : null,
+    "type" : "",
+    "name" : "Basic",
+    "collectibleCount" : 153,
+    "collectibleRevealedCount" : 153,
+    "nonCollectibleCount" : 59,
+    "nonCollectibleRevealedCount" : 57
+  } ],
+  "setGroups" : [ {
+    "slug" : "phoenix",
+    "year" : 2020,
+    "cardSets" : [ "madness-at-the-darkmoon-faire", "scholomance-academy", "ashes-of-outland" ],
+    "name" : "Year of the Phoenix",
+    "standard" : true,
+    "icon" : "icon_cardset_yearofthephoenix"
+  }, {
+    "slug" : "dragon",
+    "year" : 2019,
+    "cardSets" : [ "galakronds-awakening", "descent-of-dragons", "saviors-of-uldum", "rise-of-shadows" ],
+    "name" : "Year of the Dragon",
+    "standard" : true,
+    "icon" : "icon_cardset_yearofthedragon"
+  }, {
+    "slug" : "raven",
+    "year" : 2018,
+    "cardSets" : [ "rastakhans-rumble", "the-boomsday-project", "the-witchwood" ],
+    "name" : "Year of the Raven",
+    "standard" : false,
+    "icon" : "icon_cardset_yearoftheraven"
+  }, {
+    "slug" : "mammoth",
+    "year" : 2017,
+    "cardSets" : [ "kobolds-and-catacombs", "knights-of-the-frozen-throne", "journey-to-ungoro" ],
+    "name" : "Year of the Mammoth",
+    "standard" : false,
+    "icon" : "icon_cardset_yearofthemammoth"
+  }, {
+    "slug" : "kraken",
+    "year" : 2016,
+    "cardSets" : [ "mean-streets-of-gadgetzan", "one-night-in-karazhan", "whispers-of-the-old-gods" ],
+    "name" : "Year of the Kraken",
+    "standard" : false,
+    "icon" : "icon_cardset_yearofthekraken"
+  }, {
+    "slug" : "classic",
+    "year" : 2015,
+    "cardSets" : [ "league-of-explorers", "the-grand-tournament", "blackrock-mountain", "goblins-vs-gnomes", "naxxramas" ],
+    "name" : "Classic Sets",
+    "standard" : false,
+    "yearRange" : "2014-2015",
+    "icon" : "icon_cardset_classic"
+  }, {
+    "slug" : "standard",
+    "cardSets" : [ "madness-at-the-darkmoon-faire", "scholomance-academy", "demonhunter-initiate", "ashes-of-outland", "galakronds-awakening", "descent-of-dragons", "saviors-of-uldum", "rise-of-shadows", "classic", "basic" ],
+    "name" : "Standard Cards"
+  }, {
+    "slug" : "wild",
+    "cardSets" : [ "madness-at-the-darkmoon-faire", "scholomance-academy", "demonhunter-initiate", "ashes-of-outland", "galakronds-awakening", "descent-of-dragons", "saviors-of-uldum", "rise-of-shadows", "rastakhans-rumble", "the-boomsday-project", "the-witchwood", "kobolds-and-catacombs", "knights-of-the-frozen-throne", "journey-to-ungoro", "mean-streets-of-gadgetzan", "one-night-in-karazhan", "whispers-of-the-old-gods", "league-of-explorers", "the-grand-tournament", "blackrock-mountain", "goblins-vs-gnomes", "naxxramas", "hall-of-fame", "classic", "basic" ],
+    "name" : "All Cards"
+  } ],
+  "arenaIds" : [ 7, 8, 12, 22, 23, 28, 30, 31, 32, 34, 36, 37, 41, 45, 48, 51, 61, 64, 67, 68, 69, 70, 75, 77, 86, 90, 95, 113, 132, 134, 138, 140, 141, 145, 147, 149, 151, 157, 158, 163, 175, 178, 179, 180, 186, 189, 191, 195, 201, 205, 211, 213, 216, 220, 232, 238, 239, 242, 250, 251, 254, 257, 268, 272, 274, 279, 281, 282, 284, 285, 286, 287, 289, 290, 291, 292, 296, 299, 304, 306, 308, 311, 315, 336, 338, 339, 344, 345, 348, 351, 352, 363, 365, 366, 376, 381, 383, 389, 391, 394, 395, 397, 400, 401, 404, 405, 411, 413, 415, 420, 421, 424, 430, 435, 436, 437, 440, 443, 445, 447, 453, 455, 456, 457, 459, 461, 462, 466, 467, 469, 475, 476, 481, 493, 496, 503, 505, 510, 511, 512, 513, 517, 519, 523, 525, 526, 531, 538, 546, 555, 556, 564, 567, 570, 573, 577, 581, 582, 584, 585, 587, 592, 594, 596, 601, 602, 605, 606, 608, 609, 613, 614, 618, 621, 622, 629, 630, 635, 636, 637, 640, 641, 642, 643, 648, 654, 658, 662, 667, 670, 671, 672, 680, 692, 699, 700, 708, 710, 712, 715, 724, 727, 739, 742, 748, 749, 753, 755, 756, 757, 759, 762, 763, 765, 766, 767, 768, 773, 774, 777, 778, 783, 785, 790, 791, 797, 801, 804, 810, 811, 813, 814, 818, 823, 830, 834, 836, 841, 847, 854, 855, 859, 860, 864, 866, 877, 878, 886, 887, 890, 891, 893, 896, 903, 904, 906, 912, 914, 915, 919, 920, 921, 922, 926, 930, 932, 940, 943, 950, 960, 962, 969, 971, 974, 976, 979, 982, 985, 994, 995, 997, 999, 1003, 1004, 1007, 1008, 1009, 1014, 1019, 1022, 1023, 1026, 1029, 1035, 1037, 1047, 1050, 1063, 1064, 1066, 1068, 1073, 1074, 1080, 1084, 1087, 1090, 1091, 1092, 1093, 1098, 1099, 1100, 1108, 1109, 1117, 1122, 1124, 1133, 1135, 1140, 1141, 1142, 1144, 1147, 1155, 1158, 1167, 1171, 1174, 1182, 1186, 1189, 1221, 1241, 1243, 1261, 1281, 1362, 1363, 1364, 1366, 1367, 1369, 1370, 1371, 1373, 1401, 1522, 1634, 1651, 1653, 1655, 1656, 1657, 1658, 1662, 1686, 1687, 1688, 1693, 1737, 52255, 52262, 52263, 52264, 51371, 51372, 51373, 51375, 51376, 51380, 51567, 51705, 51714, 51715, 51722, 51724, 51727, 51733, 51734, 51735, 51737, 51738, 51739, 51757, 51761, 51769, 51779, 51781, 51790, 51791, 51795, 51827, 51847, 51943, 51966, 51971, 51977, 52058, 52070, 52072, 52076, 52081, 52082, 52086, 52089, 52091, 52109, 52111, 52112, 52114, 52119, 52148, 52277, 52278, 52281, 52285, 52286, 52287, 52288, 52289, 52290, 52292, 52295, 52296, 52306, 52307, 52312, 52409, 52413, 52415, 52417, 52418, 52420, 52421, 52422, 52434, 52438, 52468, 52479, 52480, 52482, 52486, 52487, 52490, 52494, 52496, 52500, 52502, 52603, 52606, 52616, 52617, 52627, 52632, 52633, 52636, 52638, 52639, 52640, 52654, 52660, 52679, 52685, 52698, 52706, 52707, 52715, 52742, 52790, 52809, 52810, 52819, 52866, 52870, 52871, 52872, 52873, 52894, 52902, 52935, 52936, 52940, 52942, 52943, 52950, 52954, 52991, 53002, 53024, 53099, 53104, 53124, 53138, 53171, 53173, 53179, 53218, 53249, 53251, 56047, 53336, 53343, 53379, 53402, 53407, 53408, 53409, 53413, 53435, 53438, 53439, 53442, 53445, 53496, 53545, 53551, 53576, 53582, 53596, 53609, 53613, 53615, 53620, 53627, 53661, 53739, 53756, 53771, 53778, 53788, 53791, 53796, 53800, 53822, 53823, 53827, 53832, 53860, 53861, 53882, 53883, 53884, 53885, 53887, 53889, 53890, 53907, 53917, 53919, 53922, 53924, 53926, 53929, 53932, 53933, 53935, 53938, 53942, 53945, 53947, 53967, 53969, 53970, 53971, 53972, 53973, 53974, 53978, 53979, 53985, 53990, 54000, 54002, 54009, 54011, 54013, 54015, 54016, 54020, 54037, 54038, 54077, 54147, 54148, 54153, 54154, 54160, 54191, 54204, 54256, 54257, 54259, 54260, 54261, 54264, 54265, 54267, 54269, 54272, 54273, 54274, 54276, 54278, 54280, 54284, 54288, 54291, 54296, 54311, 54314, 54317, 54369, 54386, 54389, 54390, 54391, 54408, 54411, 54424, 54425, 54426, 54427, 54429, 54431, 54433, 54488, 54489, 54492, 54493, 54495, 54730, 54749, 54772, 54783, 54806, 54833, 54834, 54835, 54836, 54837, 54838, 54839, 54840, 54865, 54863, 56189, 54871, 54872, 54873, 54874, 54876, 54885, 54888, 54887, 54890, 54891, 54892, 54893, 54894, 54896, 54897, 54898, 54901, 54904, 54906, 54907, 54909, 54917, 54919, 54922, 54923, 54924, 54926, 54935, 54956, 54960, 54965, 54966, 54967, 54969, 54971, 55000, 55001, 55002, 55003, 55004, 55005, 55006, 55007, 55021, 55024, 55030, 55031, 55033, 55035, 55036, 55037, 55038, 55039, 55047, 55048, 55052, 55056, 55067, 55068, 55069, 55072, 55094, 55095, 55097, 55099, 55101, 55102, 55103, 55104, 55105, 55161, 55166, 55208, 55210, 55245, 55246, 55248, 55250, 55251, 55262, 55276, 55280, 55281, 55283, 55288, 55291, 55292, 55294, 55301, 55303, 55304, 55342, 55399, 55400, 55401, 55402, 55403, 55404, 55405, 55406, 55407, 55408, 55414, 55415, 55416, 55417, 55418, 55419, 55420, 55421, 55422, 55423, 55424, 55425, 55426, 55427, 55428, 55429, 55431, 55432, 55436, 55438, 55441, 55446, 55454, 55466, 55470, 55640, 55643, 55907, 55935, 55975, 56161, 56226, 57329, 57413, 57416, 57419, 57427, 56057, 56063, 56064, 56067, 56068, 56071, 56072, 56076, 56077, 56086, 56088, 56089, 56090, 56091, 56093, 56094, 56098, 56100, 56101, 56107, 56109, 56112, 56114, 56116, 56118, 56120, 56122, 56131, 56135, 56239, 56262, 56292, 56294, 56307, 56438, 56377, 56378, 56379, 56385, 56386, 56387, 56389, 56391, 56392, 56393, 56394, 56398, 56411, 56412, 56413, 56417, 56420, 56439, 56443, 56444, 56445, 56451, 56460, 56461, 56467, 56470, 56471, 56472, 56482, 56483, 56484, 56501, 56502, 56504, 56507, 56508, 56510, 56511, 56512, 56516, 56519, 56520, 56523, 56524, 56526, 56527, 56528, 56530, 56534, 56554, 56555, 56556, 56595, 56598, 56603, 56622, 56623, 56624, 56632, 56649, 56660, 56676, 56677, 56678, 56680, 56682, 56681, 56684, 56685, 56686, 56687, 56689, 56694, 56697, 56703, 56717, 56732, 56734, 56758, 56819, 56820, 56823, 56824, 56827, 56860, 56899, 56900, 56985, 57145, 57149, 57160, 57165, 57166, 57174, 57175, 57176, 57177, 57180, 57181, 57182, 57183, 57184, 57186, 57187, 57188, 57189, 57190, 57191, 57192, 57193, 57194, 57195, 57197, 57217, 57326, 57476, 57546, 57619, 57688, 57718, 57721, 57907, 57950, 57979, 58201, 58202, 58243, 58453, 58455, 58495, 58549, 59864, 59869, 60280, 58170, 56587, 56652, 56739, 56765, 56841, 56873, 56905, 56928, 58172, 58183, 58244, 58246, 58452, 58487, 58492, 58524, 58610, 59710, 59865, 58607, 56550, 57732, 56791, 56583, 56973, 56806, 56792, 58489, 59867, 58494, 57847, 60068, 60069, 60070, 60071, 60066, 60067 ],
+  "types" : [ {
+    "slug" : "hero",
+    "id" : 3,
+    "name" : "Hero"
+  }, {
+    "slug" : "minion",
+    "id" : 4,
+    "name" : "Minion"
+  }, {
+    "slug" : "spell",
+    "id" : 5,
+    "name" : "Spell"
+  }, {
+    "slug" : "weapon",
+    "id" : 7,
+    "name" : "Weapon"
+  } ],
+  "rarities" : [ {
+    "slug" : "common",
+    "id" : 1,
+    "craftingCost" : [ 50, 400 ],
+    "dustValue" : [ 5, 50 ],
+    "name" : "Common"
+  }, {
+    "slug" : "free",
+    "id" : 2,
+    "craftingCost" : [ null, null ],
+    "dustValue" : [ null, null ],
+    "name" : "Free"
+  }, {
+    "slug" : "rare",
+    "id" : 3,
+    "craftingCost" : [ 100, 800 ],
+    "dustValue" : [ 20, 100 ],
+    "name" : "Rare"
+  }, {
+    "slug" : "epic",
+    "id" : 4,
+    "craftingCost" : [ 400, 1600 ],
+    "dustValue" : [ 100, 400 ],
+    "name" : "Epic"
+  }, {
+    "slug" : "legendary",
+    "id" : 5,
+    "craftingCost" : [ 1600, 3200 ],
+    "dustValue" : [ 400, 1600 ],
+    "name" : "Legendary"
+  } ],
+  "classes" : [ {
+    "slug" : "demonhunter",
+    "id" : 14,
+    "name" : "Demon Hunter",
+    "cardId" : 56550
+  }, {
+    "slug" : "druid",
+    "id" : 2,
+    "name" : "Druid",
+    "cardId" : 274
+  }, {
+    "slug" : "hunter",
+    "id" : 3,
+    "name" : "Hunter",
+    "cardId" : 31
+  }, {
+    "slug" : "mage",
+    "id" : 4,
+    "name" : "Mage",
+    "cardId" : 637
+  }, {
+    "slug" : "paladin",
+    "id" : 5,
+    "name" : "Paladin",
+    "cardId" : 671
+  }, {
+    "slug" : "priest",
+    "id" : 6,
+    "name" : "Priest",
+    "cardId" : 813
+  }, {
+    "slug" : "rogue",
+    "id" : 7,
+    "name" : "Rogue",
+    "cardId" : 930
+  }, {
+    "slug" : "shaman",
+    "id" : 8,
+    "name" : "Shaman",
+    "cardId" : 1066
+  }, {
+    "slug" : "warlock",
+    "id" : 9,
+    "name" : "Warlock",
+    "cardId" : 893
+  }, {
+    "slug" : "warrior",
+    "id" : 10,
+    "name" : "Warrior",
+    "cardId" : 7
+  }, {
+    "slug" : "neutral",
+    "id" : 12,
+    "name" : "Neutral"
+  } ],
+  "minionTypes" : [ {
+    "slug" : "murloc",
+    "id" : 14,
+    "name" : "Murloc"
+  }, {
+    "slug" : "demon",
+    "id" : 15,
+    "name" : "Demon"
+  }, {
+    "slug" : "mech",
+    "id" : 17,
+    "name" : "Mech"
+  }, {
+    "slug" : "elemental",
+    "id" : 18,
+    "name" : "Elemental"
+  }, {
+    "slug" : "beast",
+    "id" : 20,
+    "name" : "Beast"
+  }, {
+    "slug" : "totem",
+    "id" : 21,
+    "name" : "Totem"
+  }, {
+    "slug" : "pirate",
+    "id" : 23,
+    "name" : "Pirate"
+  }, {
+    "slug" : "dragon",
+    "id" : 24,
+    "name" : "Dragon"
+  }, {
+    "slug" : "all",
+    "id" : 26,
+    "name" : "All"
+  } ],
+  "gameModes" : [ {
+    "slug" : "constructed",
+    "id" : 1,
+    "name" : "Standard & Wild Formats"
+  }, {
+    "slug" : "battlegrounds",
+    "id" : 2,
+    "name" : "Battlegrounds"
+  }, {
+    "slug" : "arena",
+    "id" : 3,
+    "name" : "Current Arena Cards"
+  }, {
+    "slug" : "duels",
+    "id" : 4,
+    "name" : "Current Duels Cards"
+  } ],
+  "keywords" : [ {
+    "id" : 1,
+    "slug" : "taunt",
+    "name" : "Taunt",
+    "refText" : "Enemies must attack minions that have Taunt.",
+    "text" : "Enemies must attack this minion."
+  }, {
+    "id" : 2,
+    "slug" : "spellpower",
+    "name" : "Spell Damage",
+    "refText" : "Your spells deal extra damage.",
+    "text" : "Your spell cards deal extra damage."
+  }, {
+    "id" : 3,
+    "slug" : "divine-shield",
+    "name" : "Divine Shield",
+    "refText" : "The first time a Shielded minion takes damage, ignore it.",
+    "text" : "The first time this minion takes damage, ignore it."
+  }, {
+    "id" : 4,
+    "slug" : "charge",
+    "name" : "Charge",
+    "refText" : "Can attack immediately.",
+    "text" : "Can attack immediately."
+  }, {
+    "id" : 5,
+    "slug" : "secret",
+    "name" : "Secret",
+    "refText" : "Hidden until a specific action occurs on your opponent's turn.",
+    "text" : "Hidden until a specific action occurs on your opponent's turn."
+  }, {
+    "id" : 6,
+    "slug" : "stealth",
+    "name" : "Stealth",
+    "refText" : "Can't be attacked or targeted until it attacks.",
+    "text" : "Can't be attacked or targeted until it attacks."
+  }, {
+    "id" : 8,
+    "slug" : "battlecry",
+    "name" : "Battlecry",
+    "refText" : "Does something when you play it from your hand.",
+    "text" : "Does something when you play it from your hand."
+  }, {
+    "id" : 10,
+    "slug" : "freeze",
+    "name" : "Freeze",
+    "refText" : "Frozen characters lose their next attack.",
+    "text" : "Frozen characters lose their next attack."
+  }, {
+    "id" : 11,
+    "slug" : "windfury",
+    "name" : "Windfury",
+    "refText" : "Can attack twice each turn.",
+    "text" : "Can attack twice each turn."
+  }, {
+    "id" : 12,
+    "slug" : "deathrattle",
+    "name" : "Deathrattle",
+    "refText" : "Does something when it dies.",
+    "text" : "Does something when it dies."
+  }, {
+    "id" : 13,
+    "slug" : "combo",
+    "name" : "Combo",
+    "refText" : "A bonus if you already played a card this turn.",
+    "text" : "A bonus if you already played a card this turn."
+  }, {
+    "id" : 14,
+    "slug" : "overload",
+    "name" : "Overload",
+    "refText" : "Cards with Overload limit your mana next turn.",
+    "text" : "You have X less mana next turn."
+  }, {
+    "id" : 15,
+    "slug" : "silence",
+    "name" : "Silence",
+    "refText" : "Removes all card text and enchantments.",
+    "text" : "Removes all card text and enchantments."
+  }, {
+    "id" : 16,
+    "slug" : "counter",
+    "name" : "Counter",
+    "refText" : "A card that is Countered has no effect.",
+    "text" : "A card that is Countered has no effect."
+  }, {
+    "id" : 17,
+    "slug" : "immune",
+    "name" : "Immune",
+    "refText" : "Immune characters can't be damaged.",
+    "text" : "Can't be damaged."
+  }, {
+    "id" : 19,
+    "slug" : "spare-part",
+    "name" : "Spare Parts",
+    "refText" : "Spare Parts are 1-Cost spells with minor effects.",
+    "text" : "Spare Parts are 1-Cost spells with minor effects."
+  }, {
+    "id" : 20,
+    "slug" : "inspire",
+    "name" : "Inspire",
+    "refText" : "Does something after you use your Hero Power.",
+    "text" : "Does something after you use your Hero Power."
+  }, {
+    "id" : 21,
+    "slug" : "discover",
+    "name" : "Discover",
+    "refText" : "Choose one of three cards to add to your hand.",
+    "text" : "Choose one of three cards to add to your hand."
+  }, {
+    "id" : 31,
+    "slug" : "quest",
+    "name" : "Quest",
+    "refText" : "Starts in your hand. Complete for a reward.",
+    "text" : "Starts in your hand. Complete for a reward."
+  }, {
+    "id" : 32,
+    "slug" : "poisonous",
+    "name" : "Poisonous",
+    "refText" : "Destroy any minion damaged by this.",
+    "text" : "Destroy any minion damaged by this."
+  }, {
+    "id" : 34,
+    "slug" : "adapt",
+    "name" : "Adapt",
+    "refText" : "Choose one of 3 bonuses.",
+    "text" : "Choose one of 3 bonuses."
+  }, {
+    "id" : 38,
+    "slug" : "lifesteal",
+    "name" : "Lifesteal",
+    "refText" : "Damage dealt also heals your hero.",
+    "text" : "Damage dealt also heals your hero."
+  }, {
+    "id" : 39,
+    "slug" : "recruit",
+    "name" : "Recruit",
+    "refText" : "Summon a minion from your deck.",
+    "text" : "Summon a minion from your deck."
+  }, {
+    "id" : 52,
+    "slug" : "echo",
+    "name" : "Echo",
+    "refText" : "Repeatable the turn you play this. Copies can't cost less than (1).",
+    "text" : "Repeatable the turn you play this. Copies can't cost less than (1)."
+  }, {
+    "id" : 53,
+    "slug" : "rush",
+    "name" : "Rush",
+    "refText" : "Can attack minions immediately.",
+    "text" : "Can attack minions immediately."
+  }, {
+    "id" : 61,
+    "slug" : "overkill",
+    "name" : "Overkill",
+    "refText" : "Deal excess damage on your turn for a bonus.",
+    "text" : "Deal excess damage on your turn for a bonus."
+  }, {
+    "id" : 66,
+    "slug" : "modular",
+    "name" : "Magnetic",
+    "refText" : "Play this to the left of a Mech to fuse them together!",
+    "text" : "Play this to the left of a Mech to fuse them together!"
+  }, {
+    "id" : 71,
+    "slug" : "evilzug",
+    "name" : "Lackey",
+    "refText" : "Lackeys are 1-Cost minions with Battlecries.",
+    "text" : "Lackeys are 1-Cost minions with Battlecries."
+  }, {
+    "id" : 76,
+    "slug" : "twinspell",
+    "name" : "Twinspell",
+    "refText" : "Can be cast twice.",
+    "text" : "Can be cast twice."
+  }, {
+    "id" : 77,
+    "slug" : "mega-windfury",
+    "name" : "Mega-Windfury",
+    "refText" : "Can attack four times each turn.",
+    "text" : "Can attack four times each turn."
+  }, {
+    "id" : 78,
+    "slug" : "reborn",
+    "name" : "Reborn",
+    "refText" : "Resurrects with 1 Health the first time it dies.",
+    "text" : "Resurrects with 1 Health the first time it dies."
+  }, {
+    "id" : 79,
+    "slug" : "empower",
+    "name" : "Invoke",
+    "refText" : "Use Galakrond's Power.",
+    "text" : "Use Galakrond's Power."
+  }, {
+    "id" : 86,
+    "slug" : "outcast",
+    "name" : "Outcast",
+    "refText" : "A bonus if played as the left- or right-most card in hand.",
+    "text" : "A bonus if played as the left- or right-most card in hand."
+  }, {
+    "id" : 88,
+    "slug" : "spellburst",
+    "name" : "Spellburst",
+    "refText" : "A one-time effect after you cast a spell.",
+    "text" : "A one-time effect after you cast a spell."
+  }, {
+    "id" : 89,
+    "slug" : "sidequest",
+    "name" : "Sidequest",
+    "refText" : "Complete for a reward.",
+    "text" : "Complete for a reward."
+  }, {
+    "id" : 91,
+    "slug" : "corrupt",
+    "name" : "Corrupt",
+    "refText" : "Upgrades in hand after you play a card that costs more.",
+    "text" : "Upgrades in hand after you play a card that costs more."
+  }, {
+    "id" : 92,
+    "slug" : "start-of-combat",
+    "name" : "Start of Combat",
+    "refText" : "Does something at the start of the Combat Phase.",
+    "text" : "Does something at the start of the Combat Phase."
+  } ],
+  "filterableFields" : [ "collectible", "cardSetId", "minionTypeId", "rarityId", "cardTypeId", "manaCost", "attack", "health", "armor" ],
+  "numericFields" : [ "manaCost", "attack", "health", "armor" ],
+  "cardBackCategories" : [ {
+    "slug" : "base",
+    "id" : 1,
+    "name" : "Basic"
+  }, {
+    "slug" : "fireside",
+    "id" : 2,
+    "name" : "Fireside"
+  }, {
+    "slug" : "achieve",
+    "id" : 3,
+    "name" : "Achievements"
+  }, {
+    "slug" : "heroes",
+    "id" : 4,
+    "name" : "Heroes"
+  }, {
+    "slug" : "season",
+    "id" : 5,
+    "name" : "Seasonal"
+  }, {
+    "slug" : "legend",
+    "id" : 6,
+    "name" : "Legend"
+  }, {
+    "slug" : "esports",
+    "id" : 7,
+    "name" : "Esports"
+  }, {
+    "slug" : "game_license",
+    "id" : 8,
+    "name" : "Games"
+  }, {
+    "slug" : "promotion",
+    "id" : 9,
+    "name" : "Promotion"
+  }, {
+    "slug" : "pre_purchase",
+    "id" : 10,
+    "name" : "Pre-Purchase"
+  }, {
+    "slug" : "blizzard",
+    "id" : 11,
+    "name" : "Blizzard"
+  }, {
+    "slug" : "golden",
+    "id" : 12,
+    "name" : "Golden"
+  }, {
+    "slug" : "events",
+    "id" : 13,
+    "name" : "Events"
+  } ]
+}

@@ -59,8 +59,8 @@ public class ValueTranslator {
 
     static String cardSetName(int input){
         switch (input){
-            case 1463: return "Demon Hunter Initiate";
-            case 1414: return "Ashes of Outland";
+            case 1463: return "demonhunter-initiate";
+            case 1414: return "Ashes-of-Outland";
             case 1403: return "Galakronds Awakening";
             case 1347: return "Descent of Dragons";
             case 1158: return "Saviors of Uldum";

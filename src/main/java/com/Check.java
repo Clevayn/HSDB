@@ -401,7 +401,7 @@ public class Check {
     }
 
     static boolean isStandard(Card card){
-        return card.getCardSetId() >= 1130 || card.getCardSetId() == 2 || card.getCardSetId() == 3;
+        return card.isStandard();
     }
 
     static boolean noRarity(Card card){
@@ -860,9 +860,6 @@ public class Check {
         return card.getCollectible() == -1;
     }
 
-    static boolean isStandard(ScoredCard card){
-        return card.getCardSetId() >= 1130 || card.getCardSetId() == 2 || card.getCardSetId() == 3;
-    }
 
     static boolean noRarity(ScoredCard card){
         return card.getRarityId() == -1;

@@ -88,7 +88,7 @@ public class ScoredCard {
 
     ScoredCard(){}
 
-    ScoredCard(Card card, Ratios ratios) {
+    ScoredCard(Card card, WildRatios wildRatios) {
         this.id = card.getId();
         this.collectible = card.getCollectible();
         this.slug = card.getSlug();
@@ -102,8 +102,8 @@ public class ScoredCard {
         this.health = card.getHealth();
         this.attack = card.getAttack();
         this.manaCost = card.getManaCost();
-        this.minionScoreWild = ratios.getMinionScoreWild();
-        this.minionScoreStandard = ratios.getMinionScoreStandard();
+        this.minionScoreWild = wildRatios.getMinionScoreWild();
+        this.minionScoreStandard = wildRatios.getMinionScoreStandard();
         this.durability = card.getDurability();
         this.name = card.getName();
         this.text = card.getText();
@@ -116,23 +116,23 @@ public class ScoredCard {
         this.keywordIds = card.getKeywordIds();
         this.standard = card.isStandard();
 
-        this.damageRatioWild = ratios.getRatios()[0][0];
-        this.survivalRatioWild = ratios.getRatios()[0][1];
+        this.damageRatioWild = wildRatios.getRatios()[0][0];
+        this.survivalRatioWild = wildRatios.getRatios()[0][1];
 
-        this.damageRatioWildCost = ratios.getRatios()[1][0];
-        this.survivalRatioWildCost = ratios.getRatios()[1][1];
+        this.damageRatioWildCost = wildRatios.getRatios()[1][0];
+        this.survivalRatioWildCost = wildRatios.getRatios()[1][1];
 
-        this.damageScoreWild = ratios.getScores()[0][0];
-        this.survivalScoreWild = ratios.getScores()[0][1];
+        this.damageScoreWild = wildRatios.getScores()[0][0];
+        this.survivalScoreWild = wildRatios.getScores()[0][1];
 
-        this.damageRatioStandard = ratios.getRatios()[2][0];
-        this.survivalRatioStandard = ratios.getRatios()[2][1];
+        this.damageRatioStandard = wildRatios.getRatios()[2][0];
+        this.survivalRatioStandard = wildRatios.getRatios()[2][1];
 
-        this.damageRatioStandardCost = ratios.getRatios()[3][0];
-        this.survivalRatioStandardCost = ratios.getRatios()[3][1];
+        this.damageRatioStandardCost = wildRatios.getRatios()[3][0];
+        this.survivalRatioStandardCost = wildRatios.getRatios()[3][1];
 
-        this.damageScoreStandard = ratios.getScores()[1][0];
-        this.survivalScoreStandard = ratios.getScores()[1][1];
+        this.damageScoreStandard = wildRatios.getScores()[1][0];
+        this.survivalScoreStandard = wildRatios.getScores()[1][1];
 
     }
 

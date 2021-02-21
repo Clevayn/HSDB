@@ -25,11 +25,11 @@ public class KeywordValue {
         }
         new ObjectMapper()
                 .writerWithDefaultPrettyPrinter()
-                .writeValue(new File("C:\\JavaKotlinSandbox\\src\\main\\resources\\KeywordValue.json"), byClass);
+                .writeValue(new File("C:\\HSDeckBuilder\\src\\main\\resources\\KeywordValue.json"), byClass);
     }
 
-    List<ScoredCard> id(int id) throws IOException {
-        List<ScoredCard> out;
+    List<Card> id(int id) throws IOException {
+        List<Card> out;
         if (id == 2) out = new Filter().druid().minions().collectible().getCardList();
         else if (id == 3) out = new Filter().hunter().minions().collectible().getCardList();
         else if (id == 4) out = new Filter().mage().minions().collectible().getCardList();
