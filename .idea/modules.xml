@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaKotlinSandbox.iml" filepath="$PROJECT_DIR$/JavaKotlinSandbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HSDB.iml" filepath="$PROJECT_DIR$/HSDB.iml" />
     </modules>
   </component>
 </project>
